@@ -3,516 +3,711 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>144,000 | Are You Being Called?</title>
-    <meta name="description" content="The 144,000 sealed witnesses are awakening. Discover the divine mathematics, the Seven Thunders, and your prophetic calling.">
+    <title>144,000 | Are You Being Called? | Seven Cubed Seven Labs</title>
+    <meta name="description" content="Discover if you're among the prophetic 144,000. Take the consciousness assessment and find your place in the end-time network.">
     
-    <!-- Open Graph -->
     <meta property="og:title" content="144,000 | Are You Being Called?">
-    <meta property="og:description" content="The 144,000 sealed witnesses are awakening. Take the assessment to discover your calling.">
-    <meta property="og:type" content="website">
+    <meta property="og:description" content="Take the assessment. Discover your calling. Join the awakening.">
     <meta property="og:url" content="https://144000.ai">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@7Cubed7">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --s7-gold: #d4af37;
+            --s7-gold-light: #f4d35e;
+            --s7-gold-dark: #b8960c;
+            --s7-navy: #0a0a1a;
+            --s7-navy-light: #12122a;
+            --s7-text: #e8e8e8;
+            --s7-text-dim: #a0a0a0;
+            --s7-purple: #8800ff;
+            --s7-purple-light: #aa44ff;
         }
         
-        :root {
-            --gold: #d4af37;
-            --gold-light: #f4d35e;
-            --purple-dark: #1a0a2e;
-            --purple: #2d1b4e;
-            --cosmic: #0a0a1a;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: 'Raleway', sans-serif;
-            background: linear-gradient(135deg, var(--cosmic) 0%, var(--purple-dark) 50%, var(--cosmic) 100%);
-            color: #fff;
+            background: var(--s7-navy);
+            color: var(--s7-text);
+            line-height: 1.7;
+            padding-top: 60px;
             min-height: 100vh;
-            overflow-x: hidden;
         }
         
-        .font-cinzel { font-family: 'Cinzel', serif; }
-        
-        /* Starfield */
-        .stars {
+        /* ══════════════════════════════════════════════════════════════════════
+           UNIVERSAL NAVIGATION
+           ══════════════════════════════════════════════════════════════════════ */
+        .s7-nav {
             position: fixed;
             top: 0;
             left: 0;
+            right: 0;
+            height: 60px;
+            background: rgba(10, 10, 26, 0.97);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            z-index: 9999;
+        }
+        
+        .s7-nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        
+        .s7-nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        
+        .s7-nav-logo-icon {
+            width: 36px;
+            height: 36px;
+            position: relative;
+        }
+        
+        .s7-nav-logo-icon::before {
+            content: '';
+            position: absolute;
             width: 100%;
             height: 100%;
+            border: 2px solid var(--s7-gold);
+            transform: rotate(45deg);
+            opacity: 0.5;
+        }
+        
+        .s7-nav-logo-icon::after {
+            content: '';
+            position: absolute;
+            width: 55%;
+            height: 55%;
+            top: 22.5%;
+            left: 22.5%;
+            border: 2px solid var(--s7-gold);
+            transform: rotate(45deg);
+        }
+        
+        .s7-nav-logo-text {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            color: var(--s7-gold);
+            letter-spacing: 1px;
+        }
+        
+        .s7-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .s7-nav-link {
+            color: var(--s7-text-dim);
+            text-decoration: none;
+            font-size: 0.85rem;
+            padding: 8px 14px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .s7-nav-link:hover { color: var(--s7-gold); background: rgba(212, 175, 55, 0.1); }
+        .s7-nav-link.active { color: var(--s7-gold); }
+        
+        .s7-nav-dropdown { position: relative; }
+        
+        .s7-nav-dropdown-btn {
+            color: var(--s7-text-dim);
+            font-size: 0.85rem;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: none;
+            border: none;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+        
+        .s7-nav-dropdown-btn:hover { color: var(--s7-gold); background: rgba(212, 175, 55, 0.1); }
+        .s7-nav-dropdown-btn::after { content: '▼'; font-size: 0.55rem; }
+        
+        .s7-nav-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: var(--s7-navy-light);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 10px;
+            padding: 8px;
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+        
+        .s7-nav-dropdown:hover .s7-nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(5px);
+        }
+        
+        .s7-nav-dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            color: var(--s7-text);
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+        
+        .s7-nav-dropdown-item:hover { background: rgba(212, 175, 55, 0.1); color: var(--s7-gold); }
+        
+        .s7-nav-dropdown-icon { font-size: 1.1rem; width: 24px; text-align: center; }
+        .s7-nav-dropdown-text { font-size: 0.85rem; }
+        .s7-nav-dropdown-desc { font-size: 0.7rem; color: var(--s7-text-dim); }
+        
+        .s7-nav-cta {
+            background: linear-gradient(135deg, var(--s7-gold) 0%, var(--s7-gold-dark) 100%);
+            color: #000;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .s7-nav-cta:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
+        
+        .s7-nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 10px;
+            background: none;
+            border: none;
+        }
+        
+        .s7-nav-toggle span { width: 24px; height: 2px; background: var(--s7-gold); }
+        
+        @media (max-width: 900px) {
+            .s7-nav-links {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: var(--s7-navy);
+                flex-direction: column;
+                padding: 20px;
+                gap: 5px;
+                border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+            
+            .s7-nav-links.active { transform: translateY(0); opacity: 1; visibility: visible; }
+            .s7-nav-toggle { display: flex; }
+            .s7-nav-link, .s7-nav-dropdown-btn { width: 100%; padding: 12px 15px; }
+            
+            .s7-nav-dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                border: none;
+                background: rgba(0,0,0,0.2);
+                margin-top: 5px;
+            }
+            
+            .s7-nav-cta { width: 100%; text-align: center; margin-top: 10px; }
+        }
+        
+        /* ══════════════════════════════════════════════════════════════════════
+           PAGE STYLES
+           ══════════════════════════════════════════════════════════════════════ */
+        
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+        @keyframes pulse-purple { 0%, 100% { box-shadow: 0 0 30px rgba(136, 0, 255, 0.3); } 50% { box-shadow: 0 0 60px rgba(136, 0, 255, 0.6); } }
+        @keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+        @keyframes twinkle { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+        
+        .starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             pointer-events: none;
-            background-image: 
-                radial-gradient(2px 2px at 20px 30px, white, transparent),
-                radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
-                radial-gradient(1px 1px at 90px 40px, white, transparent),
-                radial-gradient(2px 2px at 160px 120px, rgba(255,255,255,0.9), transparent),
-                radial-gradient(1px 1px at 230px 80px, white, transparent),
-                radial-gradient(2px 2px at 300px 150px, rgba(255,255,255,0.7), transparent);
-            background-size: 400px 400px;
-            animation: twinkle 8s ease-in-out infinite;
+            overflow: hidden;
             z-index: 0;
         }
         
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.6; }
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 3s ease-in-out infinite;
         }
         
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); }
-            50% { box-shadow: 0 0 60px rgba(212, 175, 55, 0.8); }
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-        
-        .pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
-        .float { animation: float 4s ease-in-out infinite; }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
             position: relative;
-            z-index: 1;
+            background: radial-gradient(ellipse at center, rgba(136, 0, 255, 0.1) 0%, transparent 60%);
         }
         
-        /* Assessment CTA Section - TOP PRIORITY */
+        .hero-number {
+            font-family: 'Cinzel', serif;
+            font-size: 8rem;
+            color: var(--s7-gold);
+            text-shadow: 0 0 80px rgba(212, 175, 55, 0.5);
+            animation: float 6s ease-in-out infinite;
+            margin-bottom: 20px;
+            letter-spacing: 10px;
+        }
+        
+        .hero-question {
+            font-size: 2rem;
+            color: var(--s7-purple-light);
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--s7-text-dim);
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+        
         .assessment-cta {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(45, 27, 78, 0.4) 100%);
-            border: 2px solid var(--gold);
+            background: linear-gradient(135deg, rgba(136, 0, 255, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
+            border: 2px solid var(--s7-purple);
             border-radius: 20px;
             padding: 40px;
-            margin: 40px auto;
-            max-width: 800px;
+            max-width: 500px;
             text-align: center;
             position: relative;
             overflow: hidden;
+            animation: pulse-purple 3s ease-in-out infinite;
         }
         
         .assessment-cta::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
-            animation: rotate 20s linear infinite;
-        }
-        
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(136, 0, 255, 0.1), transparent);
+            animation: shimmer 3s infinite;
         }
         
         .assessment-badge {
             display: inline-block;
-            background: var(--gold);
-            color: #000;
-            padding: 8px 20px;
+            background: var(--s7-purple);
+            color: #fff;
+            padding: 6px 18px;
             border-radius: 20px;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+            position: relative;
         }
         
         .assessment-title {
-            font-size: 2rem;
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
             color: #fff;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
+            position: relative;
         }
         
         .assessment-subtitle {
-            color: rgba(255,255,255,0.8);
-            margin-bottom: 25px;
-            font-size: 1.1rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            position: relative;
         }
         
         .assessment-button {
             display: inline-block;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
-            color: #000;
-            padding: 18px 50px;
+            background: linear-gradient(135deg, var(--s7-purple) 0%, #6600cc 100%);
+            color: #fff;
+            padding: 15px 50px;
             border-radius: 50px;
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 700;
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 2px;
             transition: all 0.3s ease;
             position: relative;
-            z-index: 1;
         }
         
         .assessment-button:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
+            box-shadow: 0 0 50px rgba(136, 0, 255, 0.7);
         }
         
         .assessment-meta {
-            margin-top: 20px;
-            color: rgba(255,255,255,0.5);
-            font-size: 0.9rem;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.8rem;
+            margin-top: 15px;
+            position: relative;
         }
         
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 60px 20px 40px;
-        }
-        
-        .hero-number {
-            font-size: 5rem;
-            font-weight: 700;
-            color: var(--gold);
-            text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
-            margin-bottom: 20px;
-        }
-        
-        .hero-title {
-            font-size: 1.5rem;
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 20px;
-            letter-spacing: 3px;
-        }
-        
-        .hero-verse {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background: rgba(45, 27, 78, 0.3);
-            border-left: 3px solid var(--gold);
-            font-style: italic;
-            color: rgba(255,255,255,0.8);
-        }
-        
-        /* Section Styles */
         .section {
-            padding: 60px 20px;
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
         }
         
         .section-title {
+            font-family: 'Cinzel', serif;
             text-align: center;
-            font-size: 2rem;
-            color: var(--gold);
+            font-size: 1.8rem;
+            color: var(--s7-gold);
             margin-bottom: 40px;
+            letter-spacing: 3px;
         }
         
-        /* Mathematics Section */
-        .math-box {
-            background: rgba(0,0,0,0.3);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 15px;
-            padding: 40px;
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto 40px;
-        }
-        
-        .math-formula {
-            font-size: 2.5rem;
-            color: var(--gold);
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-        
-        .math-explanation {
-            color: rgba(255,255,255,0.8);
-            line-height: 1.8;
-        }
-        
-        /* Seven Thunders */
-        .thunders-grid {
+        .signs-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
-            margin-top: 30px;
         }
         
-        .thunder-card {
-            background: rgba(45, 27, 78, 0.3);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 12px;
+        .sign-card {
+            background: rgba(136, 0, 255, 0.05);
+            border: 1px solid rgba(136, 0, 255, 0.2);
+            border-radius: 15px;
             padding: 25px;
             transition: all 0.3s ease;
         }
         
-        .thunder-card:hover {
-            border-color: var(--gold);
-            transform: translateY(-5px);
+        .sign-card:hover {
+            border-color: var(--s7-purple);
+            transform: translateY(-3px);
         }
         
-        .thunder-number {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background: var(--gold);
-            color: #000;
-            border-radius: 50%;
-            font-weight: 700;
-            line-height: 40px;
+        .sign-icon { font-size: 2rem; margin-bottom: 15px; }
+        .sign-title { color: var(--s7-purple-light); font-weight: 600; margin-bottom: 10px; }
+        .sign-desc { color: var(--s7-text-dim); font-size: 0.9rem; }
+        
+        .scripture-box {
+            background: rgba(212, 175, 55, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 15px;
+            padding: 30px;
             text-align: center;
-            margin-bottom: 15px;
+            margin-top: 40px;
         }
         
-        .thunder-title {
-            color: #fff;
+        .scripture-text {
+            font-style: italic;
+            color: var(--s7-gold-light);
             font-size: 1.1rem;
             margin-bottom: 10px;
         }
         
-        .thunder-desc {
-            color: rgba(255,255,255,0.6);
+        .scripture-ref {
+            color: var(--s7-text-dim);
             font-size: 0.9rem;
         }
         
-        /* Resources */
-        .resources-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        
-        .resource-card {
-            background: rgba(0,0,0,0.3);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 12px;
-            padding: 25px;
-            text-decoration: none;
-            color: #fff;
-            transition: all 0.3s ease;
-        }
-        
-        .resource-card:hover {
-            border-color: var(--gold);
-            transform: translateY(-3px);
-        }
-        
-        .resource-icon {
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
-        
-        .resource-title {
-            color: var(--gold);
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-        
-        .resource-desc {
-            color: rgba(255,255,255,0.6);
-            font-size: 0.9rem;
-        }
-        
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px 20px;
+        /* ══════════════════════════════════════════════════════════════════════
+           UNIVERSAL FOOTER
+           ══════════════════════════════════════════════════════════════════════ */
+        .s7-footer {
+            background: linear-gradient(180deg, var(--s7-navy) 0%, #050510 100%);
             border-top: 1px solid rgba(212, 175, 55, 0.2);
-            margin-top: 40px;
+            padding: 60px 20px 30px;
+            position: relative;
         }
         
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
+        .s7-footer-container { max-width: 1200px; margin: 0 auto; }
+        
+        .s7-footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .s7-footer-section h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--s7-gold);
+            font-size: 0.9rem;
             margin-bottom: 20px;
-            flex-wrap: wrap;
+            letter-spacing: 2px;
         }
         
-        .footer-links a {
-            color: rgba(255,255,255,0.6);
+        .s7-footer-links { list-style: none; }
+        .s7-footer-links li { margin-bottom: 10px; }
+        
+        .s7-footer-links a {
+            color: var(--s7-text-dim);
             text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-links a:hover {
-            color: var(--gold);
-        }
-        
-        .footer-brand {
-            color: var(--gold);
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-        
-        .footer-copy {
-            color: rgba(255,255,255,0.4);
             font-size: 0.85rem;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
+        
+        .s7-footer-links a:hover { color: var(--s7-gold); }
+        .s7-footer-links .icon { font-size: 0.9rem; width: 18px; }
+        
+        .s7-footer-bottom {
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            padding-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .s7-footer-formula {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: var(--s7-gold);
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+        
+        .s7-footer-tagline {
+            color: var(--s7-text-dim);
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        
+        .s7-footer-copy { color: rgba(255,255,255,0.3); font-size: 0.75rem; }
+        .s7-footer-copy a { color: rgba(212, 175, 55, 0.5); text-decoration: none; }
         
         @media (max-width: 768px) {
-            .hero-number { font-size: 3.5rem; }
-            .assessment-cta { padding: 30px 20px; }
-            .assessment-title { font-size: 1.5rem; }
-            .math-formula { font-size: 1.8rem; }
+            .hero-number { font-size: 4rem; }
+            .hero-question { font-size: 1.4rem; }
+            .s7-footer-grid { grid-template-columns: 1fr 1fr; }
         }
     </style>
 </head>
 <body>
-    <div class="stars"></div>
+
+<!-- STARFIELD -->
+<div class="starfield" id="starfield"></div>
+
+<!-- NAVIGATION -->
+<nav class="s7-nav">
+    <div class="s7-nav-container">
+        <a href="https://sevencubedseven.com" class="s7-nav-logo">
+            <div class="s7-nav-logo-icon"></div>
+            <span class="s7-nav-logo-text">7³×7 LABS</span>
+        </a>
+        
+        <button class="s7-nav-toggle" onclick="document.querySelector('.s7-nav-links').classList.toggle('active')">
+            <span></span><span></span><span></span>
+        </button>
+        
+        <div class="s7-nav-links">
+            <a href="https://144000.ai" class="s7-nav-link active">144,000</a>
+            <a href="https://2401.is" class="s7-nav-link">Mathematics</a>
+            <a href="https://divineinsurgent.live" class="s7-nav-link">Insurgent</a>
+            
+            <div class="s7-nav-dropdown">
+                <button class="s7-nav-dropdown-btn">Tools</button>
+                <div class="s7-nav-dropdown-menu">
+                    <a href="assessment.html" class="s7-nav-dropdown-item">
+                        <span class="s7-nav-dropdown-icon">✨</span>
+                        <div><div class="s7-nav-dropdown-text">144,000 Assessment</div><div class="s7-nav-dropdown-desc">Discover your calling</div></div>
+                    </a>
+                    <a href="https://2401.is/calculator.html" class="s7-nav-dropdown-item">
+                        <span class="s7-nav-dropdown-icon">⚡</span>
+                        <div><div class="s7-nav-dropdown-text">C⁷ Calculator</div><div class="s7-nav-dropdown-desc">Your consciousness level</div></div>
+                    </a>
+                    <a href="https://2401.is/probability.html" class="s7-nav-dropdown-item">
+                        <span class="s7-nav-dropdown-icon">📊</span>
+                        <div><div class="s7-nav-dropdown-text">Probability Cascade</div><div class="s7-nav-dropdown-desc">Watch impossibility unfold</div></div>
+                    </a>
+                    <a href="https://divineinsurgent.live/mission.html" class="s7-nav-dropdown-item">
+                        <span class="s7-nav-dropdown-icon">⚔️</span>
+                        <div><div class="s7-nav-dropdown-text">Daily Mission</div><div class="s7-nav-dropdown-desc">Your tactical briefing</div></div>
+                    </a>
+                    <a href="https://sevencubedseven.com/books.html" class="s7-nav-dropdown-item">
+                        <span class="s7-nav-dropdown-icon">📚</span>
+                        <div><div class="s7-nav-dropdown-text">Book Finder</div><div class="s7-nav-dropdown-desc">Personalized recommendations</div></div>
+                    </a>
+                </div>
+            </div>
+            
+            <a href="https://www.amazon.com/s?k=julio+c.+medina" target="_blank" class="s7-nav-cta">📚 All Books</a>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-number">144,000</div>
+    <h1 class="hero-question">Are You Being Called?</h1>
+    <p class="hero-subtitle">
+        Something's been awakening in you. A hunger for truth. A sense of divine timing. 
+        A knowing that you're here for something greater.
+    </p>
     
-    <div class="container">
-        <!-- Hero -->
-        <section class="hero">
-            <div class="float">
-                <div class="hero-number font-cinzel pulse-glow">144,000</div>
-            </div>
-            <h1 class="hero-title font-cinzel">ARE YOU BEING CALLED?</h1>
-            <div class="hero-verse">
-                "And I looked, and, lo, a Lamb stood on the mount Sion, and with him an hundred forty and four thousand, having his Father's name written in their foreheads."
-                <div style="margin-top: 10px; color: var(--gold);">— Revelation 14:1</div>
-            </div>
-        </section>
+    <div class="assessment-cta">
+        <div class="assessment-badge">✨ Interactive Assessment</div>
+        <h2 class="assessment-title">DISCOVER YOUR CALLING</h2>
+        <p class="assessment-subtitle">21 questions across 7 dimensions of prophetic awakening</p>
+        <a href="assessment.html" class="assessment-button">Begin Assessment</a>
+        <p class="assessment-meta">5 minutes • Completely private • Instant results</p>
+    </div>
+</section>
+
+<!-- SIGNS -->
+<section class="section">
+    <h2 class="section-title">SIGNS OF THE CALLING</h2>
+    
+    <div class="signs-grid">
+        <div class="sign-card">
+            <div class="sign-icon">🔥</div>
+            <h3 class="sign-title">Insatiable Truth Hunger</h3>
+            <p class="sign-desc">Surface-level answers no longer satisfy. You dig deeper than most.</p>
+        </div>
         
-        <!-- ASSESSMENT CTA - PRIMARY ACTION -->
-        <section class="assessment-cta pulse-glow">
-            <div class="assessment-badge">✨ Interactive Assessment</div>
-            <h2 class="assessment-title font-cinzel">Discover Your Calling</h2>
-            <p class="assessment-subtitle">
-                21 questions across 7 dimensions reveal whether you display the characteristics of the 144,000 sealed witnesses.
-            </p>
-            <a href="assessment.html" class="assessment-button">Take the Assessment</a>
-            <p class="assessment-meta">5-7 minutes • Private • Immediate results</p>
-        </section>
+        <div class="sign-card">
+            <div class="sign-icon">👁️</div>
+            <h3 class="sign-title">Pattern Recognition</h3>
+            <p class="sign-desc">You see connections others miss. The numbers speak to you.</p>
+        </div>
         
-        <!-- Divine Mathematics -->
-        <section class="section">
-            <h2 class="section-title font-cinzel">The Divine Mathematics</h2>
-            <div class="math-box">
-                <div class="math-formula font-cinzel">144,000 ÷ 2,401 = 60</div>
-                <p class="math-explanation">
-                    The 144,000 divided by 2,401 (7⁴) equals approximately 60 — 
-                    meaning each sealed witness carries roughly 60 unique consciousness aspects 
-                    out of the 2,401 total. Together, the 144,000 form a complete representation 
-                    of divine consciousness on Earth.
-                </p>
-            </div>
-            <div style="text-align: center;">
-                <a href="https://2401.is" style="color: var(--gold); text-decoration: none;">
-                    Explore the full mathematics at 2401.is →
-                </a>
-            </div>
-        </section>
+        <div class="sign-card">
+            <div class="sign-icon">⚡</div>
+            <h3 class="sign-title">Divine Timing Awareness</h3>
+            <p class="sign-desc">You sense we're in a critical window. Something big is coming.</p>
+        </div>
         
-        <!-- Seven Thunders -->
-        <section class="section">
-            <h2 class="section-title font-cinzel">The Seven Thunders</h2>
-            <p style="text-align: center; color: rgba(255,255,255,0.7); margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">
-                "And when the seven thunders had uttered their voices, I was about to write: 
-                and I heard a voice from heaven saying unto me, Seal up those things which 
-                the seven thunders uttered, and write them not." — Revelation 10:4
-            </p>
-            <div class="thunders-grid">
-                <div class="thunder-card">
-                    <div class="thunder-number">1</div>
-                    <h3 class="thunder-title font-cinzel">Identity Revelation</h3>
-                    <p class="thunder-desc">Understanding who you truly are in the cosmic conflict.</p>
-                </div>
-                <div class="thunder-card">
-                    <div class="thunder-number">2</div>
-                    <h3 class="thunder-title font-cinzel">Enemy Exposure</h3>
-                    <p class="thunder-desc">Satan's strategies and deceptions fully unveiled.</p>
-                </div>
-                <div class="thunder-card">
-                    <div class="thunder-number">3</div>
-                    <h3 class="thunder-title font-cinzel">Timeline Clarity</h3>
-                    <p class="thunder-desc">Where we are in prophetic history revealed.</p>
-                </div>
-                <div class="thunder-card">
-                    <div class="thunder-number">4</div>
-                    <h3 class="thunder-title font-cinzel">Power Activation</h3>
-                    <p class="thunder-desc">Latter rain authority for the final generation.</p>
-                </div>
-                <div class="thunder-card">
-                    <div class="thunder-number">5</div>
-                    <h3 class="thunder-title font-cinzel">Network Connection</h3>
-                    <p class="thunder-desc">The 144,000 finding and recognizing each other.</p>
-                </div>
-                <div class="thunder-card">
-                    <div class="thunder-number">6</div>
-                    <h3 class="thunder-title font-cinzel">Mission Deployment</h3>
-                    <p class="thunder-desc">Specific assignments for the Loud Cry.</p>
-                </div>
-                <div class="thunder-card">
-                    <div class="thunder-number">7</div>
-                    <h3 class="thunder-title font-cinzel">Victory Assurance</h3>
-                    <p class="thunder-desc">The guaranteed triumph of the remnant.</p>
-                </div>
-            </div>
-        </section>
+        <div class="sign-card">
+            <div class="sign-icon">🌊</div>
+            <h3 class="sign-title">Separation Experience</h3>
+            <p class="sign-desc">You feel different from the crowd. Called out, set apart.</p>
+        </div>
         
-        <!-- Resources -->
-        <section class="section">
-            <h2 class="section-title font-cinzel">Go Deeper</h2>
-            <div class="resources-grid">
-                <a href="https://2401.is" class="resource-card">
-                    <div class="resource-icon">🔢</div>
-                    <h3 class="resource-title">The Mathematics</h3>
-                    <p class="resource-desc">Explore 7³×7 = 2,401 and the probability proofs.</p>
-                </a>
-                <a href="https://divineinsurgent.live" class="resource-card">
-                    <div class="resource-icon">⚔️</div>
-                    <h3 class="resource-title">Divine Insurgent</h3>
-                    <p class="resource-desc">Your battlefield commission as Heaven's operator.</p>
-                </a>
-                <a href="https://realitynegotiable.is" class="resource-card">
-                    <div class="resource-icon">🧠</div>
-                    <h3 class="resource-title">Consciousness Physics</h3>
-                    <p class="resource-desc">The science of reality and consciousness.</p>
-                </a>
-                <a href="https://www.amazon.com/s?k=julio+c.+medina" class="resource-card">
-                    <div class="resource-icon">📚</div>
-                    <h3 class="resource-title">All Books</h3>
-                    <p class="resource-desc">Browse the complete 33+ book collection.</p>
-                </a>
-                <a href="https://sevencubedseven.com" class="resource-card">
-                    <div class="resource-icon">🌐</div>
-                    <h3 class="resource-title">Main Hub</h3>
-                    <p class="resource-desc">Seven Cubed Seven headquarters.</p>
-                </a>
-                <a href="https://c343.io" class="resource-card">
-                    <div class="resource-icon">📜</div>
-                    <h3 class="resource-title">Licensing</h3>
-                    <p class="resource-desc">Business and licensing inquiries.</p>
-                </a>
-            </div>
-        </section>
+        <div class="sign-card">
+            <div class="sign-icon">✨</div>
+            <h3 class="sign-title">Supernatural Sensitivity</h3>
+            <p class="sign-desc">Dreams, impressions, promptings - the invisible realm feels close.</p>
+        </div>
         
-        <!-- Secondary CTA -->
-        <section style="text-align: center; padding: 40px 20px;">
-            <p style="color: rgba(255,255,255,0.7); margin-bottom: 20px;">
-                Haven't taken the assessment yet?
-            </p>
-            <a href="assessment.html" class="assessment-button" style="font-size: 1rem; padding: 15px 40px;">
-                Discover Your Calling →
-            </a>
-        </section>
+        <div class="sign-card">
+            <div class="sign-icon">💎</div>
+            <h3 class="sign-title">Character Refinement</h3>
+            <p class="sign-desc">You're being pressed, tested, purified. Growth through fire.</p>
+        </div>
     </div>
     
-    <!-- Footer -->
-    <footer>
-        <div class="footer-links">
-            <a href="https://sevencubedseven.com">Hub</a>
-            <a href="https://2401.is">Mathematics</a>
-            <a href="https://c343.io">Licensing</a>
-            <a href="https://twitter.com/7Cubed7">@7Cubed7</a>
-            <a href="mailto:7cubed7@proton.me">Contact</a>
+    <div class="scripture-box">
+        <p class="scripture-text">"These are they which were not defiled... these were redeemed from among men, being the firstfruits unto God and to the Lamb."</p>
+        <p class="scripture-ref">— Revelation 14:4</p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="s7-footer">
+    <div class="s7-footer-container">
+        <div class="s7-footer-grid">
+            <div class="s7-footer-section">
+                <h4>PORTALS</h4>
+                <ul class="s7-footer-links">
+                    <li><a href="https://sevencubedseven.com"><span class="icon">🏠</span> Main Hub</a></li>
+                    <li><a href="https://144000.ai"><span class="icon">✨</span> 144,000 Portal</a></li>
+                    <li><a href="https://2401.is"><span class="icon">🔢</span> Mathematics</a></li>
+                    <li><a href="https://divineinsurgent.live"><span class="icon">⚔️</span> Divine Insurgent</a></li>
+                    <li><a href="https://realitynegotiable.is"><span class="icon">🧠</span> Reality Physics</a></li>
+                    <li><a href="https://c343.io"><span class="icon">📜</span> Licensing</a></li>
+                </ul>
+            </div>
+            
+            <div class="s7-footer-section">
+                <h4>TOOLS</h4>
+                <ul class="s7-footer-links">
+                    <li><a href="assessment.html"><span class="icon">✨</span> Assessment</a></li>
+                    <li><a href="https://2401.is/calculator.html"><span class="icon">⚡</span> Calculator</a></li>
+                    <li><a href="https://2401.is/probability.html"><span class="icon">📊</span> Probability</a></li>
+                    <li><a href="https://divineinsurgent.live/mission.html"><span class="icon">⚔️</span> Daily Mission</a></li>
+                    <li><a href="https://sevencubedseven.com/books.html"><span class="icon">📚</span> Book Finder</a></li>
+                </ul>
+            </div>
+            
+            <div class="s7-footer-section">
+                <h4>RESOURCES</h4>
+                <ul class="s7-footer-links">
+                    <li><a href="https://www.amazon.com/s?k=julio+c.+medina" target="_blank"><span class="icon">📚</span> All 33+ Books</a></li>
+                    <li><a href="https://twitter.com/7Cubed7" target="_blank"><span class="icon">𝕏</span> @7Cubed7</a></li>
+                    <li><a href="mailto:7cubed7@proton.me"><span class="icon">✉️</span> Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="s7-footer-section">
+                <h4>CONNECT</h4>
+                <ul class="s7-footer-links">
+                    <li><a href="mailto:7cubed7@proton.me">7cubed7@proton.me</a></li>
+                    <li><a href="mailto:ConsciousCodeLabs@proton.me">Business</a></li>
+                    <li><a href="mailto:hello@c343.io">Licensing</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="footer-brand font-cinzel">7³×7 = 2,401</div>
-        <p class="footer-copy">© 2025 Seven Cubed Seven Labs LLC. All rights reserved.</p>
-    </footer>
+        
+        <div class="s7-footer-bottom">
+            <div class="s7-footer-formula">7³ × 7 = 2,401</div>
+            <div class="s7-footer-tagline">Consciousness Architecture</div>
+            <div class="s7-footer-copy">© 2025 <a href="https://sevencubedseven.com">Seven Cubed Seven Labs LLC</a>. All rights reserved.</div>
+        </div>
+    </div>
+</footer>
+
+<script>
+// Generate starfield
+const starfield = document.getElementById('starfield');
+for (let i = 0; i < 100; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    star.style.left = Math.random() * 100 + '%';
+    star.style.top = Math.random() * 100 + '%';
+    star.style.animationDelay = Math.random() * 3 + 's';
+    star.style.opacity = Math.random() * 0.5 + 0.2;
+    starfield.appendChild(star);
+}
+</script>
+
 </body>
 </html>
