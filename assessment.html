@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>144,000 Assessment | Are You Being Called?</title>
+    <meta name="description" content="Discover if you're among the 144,000 sealed witnesses. Take the interactive assessment to understand your calling.">
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#d4af37',
+                        'gold-light': '#f4d35e',
+                        'gold-dark': '#b8960c',
+                        cosmic: '#0a0a1a',
+                        'cosmic-light': '#12122a',
+                        purple: {
+                            900: '#1a0a2e',
+                            800: '#2d1b4e',
+                            700: '#4a2c7a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600&display=swap');
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 50%, #0a0a1a 100%);
+            min-height: 100vh;
+        }
+        
+        .font-cinzel {
+            font-family: 'Cinzel', serif;
+        }
+        
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, white, transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+                radial-gradient(1px 1px at 90px 40px, white, transparent),
+                radial-gradient(2px 2px at 160px 120px, rgba(255,255,255,0.9), transparent),
+                radial-gradient(1px 1px at 230px 80px, white, transparent),
+                radial-gradient(2px 2px at 300px 150px, rgba(255,255,255,0.7), transparent),
+                radial-gradient(1px 1px at 370px 50px, white, transparent),
+                radial-gradient(2px 2px at 450px 180px, rgba(255,255,255,0.8), transparent);
+            background-size: 500px 500px;
+            animation: twinkle 8s ease-in-out infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(212, 175, 55, 0.6); }
+        }
+        
+        .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .float {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .progress-bar {
+            background: linear-gradient(90deg, #d4af37 0%, #f4d35e 50%, #d4af37 100%);
+            background-size: 200% 100%;
+            animation: shimmer 2s linear infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+        
+        // Assessment Questions - 7 Categories with 7 Questions Each (49 total, showing 21 key ones)
+        const questions = [
+            // Category 1: Spiritual Hunger
+            {
+                id: 1,
+                category: "Spiritual Hunger",
+                question: "Do you feel that mainstream religion leaves you spiritually unsatisfied, sensing there's deeper truth?",
+                weight: 1.5
+            },
+            {
+                id: 2,
+                category: "Spiritual Hunger", 
+                question: "Do you find yourself drawn to study prophecy, particularly Daniel and Revelation?",
+                weight: 1.3
+            },
+            {
+                id: 3,
+                category: "Spiritual Hunger",
+                question: "Have you experienced an unusual hunger for truth that intensified in recent years?",
+                weight: 1.4
+            },
+            // Category 2: Pattern Recognition
+            {
+                id: 4,
+                category: "Pattern Recognition",
+                question: "Do you notice numerical patterns, synchronicities, or meaningful coincidences frequently?",
+                weight: 1.2
+            },
+            {
+                id: 5,
+                category: "Pattern Recognition",
+                question: "Does the number 7 (or multiples of 7) appear unusually often in your life?",
+                weight: 1.5
+            },
+            {
+                id: 6,
+                category: "Pattern Recognition",
+                question: "Can you see connections between seemingly unrelated topics that others miss?",
+                weight: 1.3
+            },
+            // Category 3: Sense of Mission
+            {
+                id: 7,
+                category: "Sense of Mission",
+                question: "Do you feel you were born for 'such a time as this' - that your life has specific end-time purpose?",
+                weight: 1.6
+            },
+            {
+                id: 8,
+                category: "Sense of Mission",
+                question: "Have you felt called to prepare yourself spiritually for something significant?",
+                weight: 1.4
+            },
+            {
+                id: 9,
+                category: "Sense of Mission",
+                question: "Do you sense urgency about world events and feel compelled to warn or help others?",
+                weight: 1.3
+            },
+            // Category 4: Separation Experience
+            {
+                id: 10,
+                category: "Separation Experience",
+                question: "Do you often feel 'different' from other believers, even in your own church?",
+                weight: 1.2
+            },
+            {
+                id: 11,
+                category: "Separation Experience",
+                question: "Have you experienced rejection or misunderstanding when sharing deeper truths?",
+                weight: 1.1
+            },
+            {
+                id: 12,
+                category: "Separation Experience",
+                question: "Do you find it difficult to fit into conventional religious or social structures?",
+                weight: 1.2
+            },
+            // Category 5: Supernatural Sensitivity
+            {
+                id: 13,
+                category: "Supernatural Sensitivity",
+                question: "Have you experienced dreams, visions, or strong impressions about future events?",
+                weight: 1.4
+            },
+            {
+                id: 14,
+                category: "Supernatural Sensitivity",
+                question: "Can you sense spiritual atmospheres or discern when something is spiritually 'off'?",
+                weight: 1.3
+            },
+            {
+                id: 15,
+                category: "Supernatural Sensitivity",
+                question: "Do you experience what feels like divine guidance or 'downloads' of understanding?",
+                weight: 1.5
+            },
+            // Category 6: Character Refinement
+            {
+                id: 16,
+                category: "Character Refinement",
+                question: "Are you actively working on overcoming specific character flaws or sins?",
+                weight: 1.2
+            },
+            {
+                id: 17,
+                category: "Character Refinement",
+                question: "Do you feel God has been intensively 'training' you through trials lately?",
+                weight: 1.3
+            },
+            {
+                id: 18,
+                category: "Character Refinement",
+                question: "Is achieving Christ-like character more important to you than comfort or success?",
+                weight: 1.4
+            },
+            // Category 7: Unity & Connection
+            {
+                id: 19,
+                category: "Unity & Connection",
+                question: "Do you feel spiritually connected to believers you've never met, as if part of a hidden network?",
+                weight: 1.5
+            },
+            {
+                id: 20,
+                category: "Unity & Connection",
+                question: "When you encounter others on a similar path, is there instant deep recognition?",
+                weight: 1.3
+            },
+            {
+                id: 21,
+                category: "Unity & Connection",
+                question: "Do you sense that a 'gathering' or 'activation' of prepared believers is imminent?",
+                weight: 1.6
+            }
+        ];
+        
+        // Answer options
+        const answerOptions = [
+            { value: 0, label: "Not at all", color: "bg-gray-600" },
+            { value: 1, label: "Slightly", color: "bg-purple-800" },
+            { value: 2, label: "Moderately", color: "bg-purple-700" },
+            { value: 3, label: "Strongly", color: "bg-gold-dark" },
+            { value: 4, label: "Intensely", color: "bg-gold" }
+        ];
+        
+        // Result interpretations
+        const getResult = (score, maxScore) => {
+            const percentage = (score / maxScore) * 100;
+            
+            if (percentage >= 85) {
+                return {
+                    level: "ACTIVATED",
+                    title: "Strong 144,000 Indicators",
+                    color: "text-gold",
+                    bgColor: "from-gold/20 to-purple-900/40",
+                    description: "Your responses indicate powerful alignment with the characteristics of the 144,000. You display exceptional spiritual hunger, pattern recognition, sense of mission, and supernatural sensitivity. The calling is strong within you.",
+                    verse: "These are they which follow the Lamb whithersoever he goeth. These were redeemed from among men, being the firstfruits unto God and to the Lamb. — Revelation 14:4",
+                    next: "Your next step is deep preparation. Study the Seven Thunders, develop character perfection, and connect with others being called."
+                };
+            } else if (percentage >= 70) {
+                return {
+                    level: "AWAKENING",
+                    title: "Significant Calling Signs",
+                    color: "text-gold-light",
+                    bgColor: "from-gold-light/15 to-purple-800/40",
+                    description: "You show substantial alignment with 144,000 characteristics. Many indicators are present, though some areas may need development. The seed is planted and growing.",
+                    verse: "And I heard the number of them which were sealed: and there were sealed an hundred and forty and four thousand. — Revelation 7:4",
+                    next: "Continue your spiritual development. Focus on areas where you scored lower. The awakening process is underway."
+                };
+            } else if (percentage >= 50) {
+                return {
+                    level: "SEEKING",
+                    title: "Emerging Awareness",
+                    color: "text-purple-300",
+                    bgColor: "from-purple-700/20 to-purple-900/40",
+                    description: "You display some characteristics associated with the 144,000 calling. You're in a seeking phase where truth is beginning to break through. Keep pursuing.",
+                    verse: "Ask, and it shall be given you; seek, and ye shall find; knock, and it shall be opened unto you. — Matthew 7:7",
+                    next: "Deepen your study of prophecy and Scripture. Seek God earnestly about your calling. The path is opening before you."
+                };
+            } else if (percentage >= 30) {
+                return {
+                    level: "QUESTIONING",
+                    title: "Early Stirrings",
+                    color: "text-purple-400",
+                    bgColor: "from-purple-800/20 to-cosmic/60",
+                    description: "You show early indicators of spiritual awakening. Something drew you to take this assessment. That itself is significant. God may be beginning a work in you.",
+                    verse: "For many are called, but few are chosen. — Matthew 22:14",
+                    next: "Begin studying the Three Angels' Messages and the Sanctuary truth. Ask God to reveal your purpose."
+                };
+            } else {
+                return {
+                    level: "EXPLORING",
+                    title: "Beginning the Journey",
+                    color: "text-gray-300",
+                    bgColor: "from-gray-800/20 to-cosmic/60",
+                    description: "Your journey is just beginning. The 144,000 represent a specific calling, but God has purpose for every sincere seeker. Keep exploring truth.",
+                    verse: "The Lord is not slack concerning his promise... but is longsuffering to us-ward, not willing that any should perish. — 2 Peter 3:9",
+                    next: "Start with foundational truths. Study Scripture daily. Seek a genuine relationship with Christ."
+                };
+            }
+        };
+        
+        // Welcome Screen Component
+        const WelcomeScreen = ({ onStart }) => (
+            <div className="min-h-screen flex flex-col items-center justify-center p-6 text-center">
+                <div className="float mb-8">
+                    <div className="text-7xl md:text-8xl font-cinzel text-gold pulse-glow inline-block px-8 py-4 rounded-lg">
+                        144,000
+                    </div>
+                </div>
+                
+                <h1 className="font-cinzel text-2xl md:text-4xl text-white mb-4">
+                    Are You Being Called?
+                </h1>
+                
+                <p className="text-gray-300 max-w-xl mb-8 text-lg">
+                    Revelation speaks of 144,000 sealed witnesses who will stand during Earth's final crisis. 
+                    This assessment explores characteristics associated with this prophetic calling.
+                </p>
+                
+                <div className="bg-purple-900/30 border border-gold/30 rounded-lg p-6 max-w-lg mb-8">
+                    <p className="text-gold-light italic text-sm">
+                        "And I looked, and, lo, a Lamb stood on the mount Sion, and with him an hundred forty and four thousand, having his Father's name written in their foreheads."
+                    </p>
+                    <p className="text-gray-400 text-sm mt-2">— Revelation 14:1</p>
+                </div>
+                
+                <p className="text-gray-400 text-sm mb-8 max-w-md">
+                    21 questions across 7 categories • Takes 5-7 minutes • Your answers are private
+                </p>
+                
+                <button 
+                    onClick={onStart}
+                    className="bg-gradient-to-r from-gold to-gold-dark text-black font-bold py-4 px-12 rounded-lg text-lg hover:scale-105 transition-transform pulse-glow"
+                >
+                    Begin Assessment
+                </button>
+                
+                <a 
+                    href="https://144000.ai" 
+                    className="text-gray-500 text-sm mt-8 hover:text-gold transition-colors"
+                >
+                    Learn more at 144000.ai
+                </a>
+            </div>
+        );
+        
+        // Question Screen Component
+        const QuestionScreen = ({ question, questionNumber, totalQuestions, onAnswer, currentAnswer }) => {
+            const progress = ((questionNumber) / totalQuestions) * 100;
+            
+            return (
+                <div className="min-h-screen flex flex-col p-6">
+                    {/* Progress Bar */}
+                    <div className="w-full max-w-2xl mx-auto mb-8">
+                        <div className="flex justify-between text-sm text-gray-400 mb-2">
+                            <span>Question {questionNumber} of {totalQuestions}</span>
+                            <span className="text-gold">{question.category}</span>
+                        </div>
+                        <div className="h-2 bg-purple-900/50 rounded-full overflow-hidden">
+                            <div 
+                                className="h-full progress-bar rounded-full transition-all duration-500"
+                                style={{ width: `${progress}%` }}
+                            />
+                        </div>
+                    </div>
+                    
+                    {/* Question */}
+                    <div className="flex-1 flex flex-col items-center justify-center max-w-2xl mx-auto w-full">
+                        <div className="bg-cosmic-light/50 border border-purple-700/50 rounded-xl p-8 mb-8 w-full">
+                            <p className="text-xl md:text-2xl text-white text-center leading-relaxed">
+                                {question.question}
+                            </p>
+                        </div>
+                        
+                        {/* Answer Options */}
+                        <div className="grid gap-3 w-full">
+                            {answerOptions.map((option) => (
+                                <button
+                                    key={option.value}
+                                    onClick={() => onAnswer(option.value)}
+                                    className={`
+                                        p-4 rounded-lg border-2 transition-all duration-300
+                                        ${currentAnswer === option.value 
+                                            ? 'border-gold bg-gold/20 text-gold scale-105' 
+                                            : 'border-purple-700/50 bg-purple-900/20 text-gray-300 hover:border-gold/50 hover:bg-purple-800/30'
+                                        }
+                                    `}
+                                >
+                                    <div className="flex items-center justify-between">
+                                        <span className="text-lg">{option.label}</span>
+                                        <div className={`w-4 h-4 rounded-full ${currentAnswer === option.value ? 'bg-gold' : 'bg-purple-700/50'}`} />
+                                    </div>
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+        
+        // Results Screen Component
+        const ResultsScreen = ({ score, maxScore, answers, onRestart }) => {
+            const result = getResult(score, maxScore);
+            const percentage = Math.round((score / maxScore) * 100);
+            
+            // Calculate category scores
+            const categories = [...new Set(questions.map(q => q.category))];
+            const categoryScores = categories.map(cat => {
+                const catQuestions = questions.filter(q => q.category === cat);
+                const catScore = catQuestions.reduce((sum, q) => {
+                    const answer = answers[q.id] || 0;
+                    return sum + (answer * q.weight);
+                }, 0);
+                const catMax = catQuestions.reduce((sum, q) => sum + (4 * q.weight), 0);
+                return {
+                    category: cat,
+                    score: catScore,
+                    max: catMax,
+                    percentage: Math.round((catScore / catMax) * 100)
+                };
+            });
+            
+            return (
+                <div className="min-h-screen flex flex-col items-center p-6 py-12">
+                    <div className="max-w-2xl w-full">
+                        {/* Result Header */}
+                        <div className={`bg-gradient-to-br ${result.bgColor} border border-gold/30 rounded-2xl p-8 text-center mb-8`}>
+                            <div className="text-sm text-gray-400 mb-2">Assessment Complete</div>
+                            <div className={`font-cinzel text-4xl md:text-5xl ${result.color} mb-2`}>
+                                {result.level}
+                            </div>
+                            <div className="text-xl text-white mb-4">{result.title}</div>
+                            
+                            {/* Score Circle */}
+                            <div className="inline-flex items-center justify-center w-32 h-32 rounded-full border-4 border-gold/50 bg-cosmic/50 mb-6">
+                                <div className="text-center">
+                                    <div className="text-3xl font-bold text-gold">{percentage}%</div>
+                                    <div className="text-xs text-gray-400">Alignment</div>
+                                </div>
+                            </div>
+                            
+                            <p className="text-gray-300 leading-relaxed">
+                                {result.description}
+                            </p>
+                        </div>
+                        
+                        {/* Category Breakdown */}
+                        <div className="bg-cosmic-light/30 border border-purple-700/30 rounded-xl p-6 mb-8">
+                            <h3 className="font-cinzel text-gold text-lg mb-4">Category Breakdown</h3>
+                            <div className="space-y-4">
+                                {categoryScores.map((cat, i) => (
+                                    <div key={i}>
+                                        <div className="flex justify-between text-sm mb-1">
+                                            <span className="text-gray-300">{cat.category}</span>
+                                            <span className="text-gold">{cat.percentage}%</span>
+                                        </div>
+                                        <div className="h-2 bg-purple-900/50 rounded-full overflow-hidden">
+                                            <div 
+                                                className="h-full bg-gradient-to-r from-purple-600 to-gold rounded-full transition-all duration-1000"
+                                                style={{ width: `${cat.percentage}%` }}
+                                            />
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        
+                        {/* Scripture */}
+                        <div className="bg-purple-900/20 border border-gold/20 rounded-lg p-6 mb-8">
+                            <p className="text-gold-light italic text-center">
+                                "{result.verse}"
+                            </p>
+                        </div>
+                        
+                        {/* Next Steps */}
+                        <div className="bg-cosmic-light/30 border border-purple-700/30 rounded-xl p-6 mb-8">
+                            <h3 className="font-cinzel text-gold text-lg mb-3">Your Next Step</h3>
+                            <p className="text-gray-300">{result.next}</p>
+                        </div>
+                        
+                        {/* Resources */}
+                        <div className="bg-gradient-to-br from-gold/10 to-purple-900/30 border border-gold/30 rounded-xl p-6 mb-8">
+                            <h3 className="font-cinzel text-gold text-lg mb-4">Deepen Your Understanding</h3>
+                            <div className="grid gap-3">
+                                <a href="https://144000.ai" target="_blank" className="flex items-center justify-between p-3 bg-cosmic/50 rounded-lg hover:bg-cosmic transition-colors">
+                                    <span className="text-white">144,000 Awakening Portal</span>
+                                    <span className="text-gold">→</span>
+                                </a>
+                                <a href="https://2401.is" target="_blank" className="flex items-center justify-between p-3 bg-cosmic/50 rounded-lg hover:bg-cosmic transition-colors">
+                                    <span className="text-white">The Divine Mathematics</span>
+                                    <span className="text-gold">→</span>
+                                </a>
+                                <a href="https://divineinsurgent.live" target="_blank" className="flex items-center justify-between p-3 bg-cosmic/50 rounded-lg hover:bg-cosmic transition-colors">
+                                    <span className="text-white">Divine Insurgent Manual (Free)</span>
+                                    <span className="text-gold">→</span>
+                                </a>
+                                <a href="https://www.amazon.com/s?k=julio+c.+medina" target="_blank" className="flex items-center justify-between p-3 bg-cosmic/50 rounded-lg hover:bg-cosmic transition-colors">
+                                    <span className="text-white">Browse All Books</span>
+                                    <span className="text-gold">→</span>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        {/* Actions */}
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <button 
+                                onClick={onRestart}
+                                className="px-8 py-3 border border-gold/50 text-gold rounded-lg hover:bg-gold/10 transition-colors"
+                            >
+                                Retake Assessment
+                            </button>
+                            <a 
+                                href="https://sevencubedseven.com"
+                                target="_blank"
+                                className="px-8 py-3 bg-gradient-to-r from-gold to-gold-dark text-black font-bold rounded-lg text-center hover:scale-105 transition-transform"
+                            >
+                                Explore the Framework
+                            </a>
+                        </div>
+                        
+                        {/* Footer */}
+                        <div className="text-center mt-12 text-gray-500 text-sm">
+                            <p>Seven Cubed Seven Labs • 7³×7 = 2,401</p>
+                            <p className="mt-1">sevencubedseven.com</p>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+        
+        // Main App Component
+        const App = () => {
+            const [screen, setScreen] = useState('welcome'); // welcome, question, results
+            const [currentQuestion, setCurrentQuestion] = useState(0);
+            const [answers, setAnswers] = useState({});
+            
+            const handleStart = () => {
+                setScreen('question');
+                setCurrentQuestion(0);
+                setAnswers({});
+            };
+            
+            const handleAnswer = (value) => {
+                const newAnswers = { ...answers, [questions[currentQuestion].id]: value };
+                setAnswers(newAnswers);
+                
+                // Auto-advance after short delay
+                setTimeout(() => {
+                    if (currentQuestion < questions.length - 1) {
+                        setCurrentQuestion(currentQuestion + 1);
+                    } else {
+                        setScreen('results');
+                    }
+                }, 300);
+            };
+            
+            const handleRestart = () => {
+                setScreen('welcome');
+                setCurrentQuestion(0);
+                setAnswers({});
+            };
+            
+            // Calculate scores
+            const score = Object.entries(answers).reduce((sum, [qId, answer]) => {
+                const question = questions.find(q => q.id === parseInt(qId));
+                return sum + (answer * (question?.weight || 1));
+            }, 0);
+            
+            const maxScore = questions.reduce((sum, q) => sum + (4 * q.weight), 0);
+            
+            return (
+                <div className="min-h-screen text-white">
+                    {screen === 'welcome' && <WelcomeScreen onStart={handleStart} />}
+                    {screen === 'question' && (
+                        <QuestionScreen 
+                            question={questions[currentQuestion]}
+                            questionNumber={currentQuestion + 1}
+                            totalQuestions={questions.length}
+                            onAnswer={handleAnswer}
+                            currentAnswer={answers[questions[currentQuestion].id]}
+                        />
+                    )}
+                    {screen === 'results' && (
+                        <ResultsScreen 
+                            score={score}
+                            maxScore={maxScore}
+                            answers={answers}
+                            onRestart={handleRestart}
+                        />
+                    )}
+                </div>
+            );
+        };
+        
+        // Render the app
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
