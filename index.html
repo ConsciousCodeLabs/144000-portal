@@ -1,47 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Primary Meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>144,000 | Are You Being Called? | Seven Cubed Seven Labs</title>
-    <meta name="description" content="Discover if you're among the prophetic 144,000. Take the consciousness assessment and find your place in the end-time network.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Seven Cubed Seven Labs LLC">
     
+    <!-- SEO Meta -->
+    <title>144,000 | Are You Being Called? | Prophetic Remnant Portal</title>
+    <meta name="description" content="Discover if you're being called to join the prophetic 144,000. Take the 21-question assessment across 7 dimensions. Signs of calling, preparation resources, and community.">
+    <meta name="keywords" content="144000, prophetic calling, end times, revelation 14, sealed remnant, spiritual awakening, seven seals, 144000 calling">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://144000.ai/">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://144000.ai/">
     <meta property="og:title" content="144,000 | Are You Being Called?">
-    <meta property="og:description" content="Take the assessment. Discover your calling. Join the awakening.">
-    <meta property="og:url" content="https://144000.ai">
+    <meta property="og:description" content="21 questions across 7 prophetic dimensions. Discover the strength of your calling indicators.">
+    <meta property="og:image" content="https://144000.ai/images/og-144000.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="144,000 Portal">
+    
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@7Cubed7">
+    <meta name="twitter:creator" content="@7Cubed7">
+    <meta name="twitter:title" content="144,000 | Are You Being Called?">
+    <meta name="twitter:description" content="Take the prophetic assessment. 21 questions. 7 dimensions. Discover your calling.">
+    <meta name="twitter:image" content="https://144000.ai/images/og-144000.png">
     
+    <!-- Performance: Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     
+    <!-- JSON-LD: Website -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "144,000 Portal",
+      "url": "https://144000.ai",
+      "description": "Prophetic calling assessment and preparation resources for the 144,000.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Seven Cubed Seven Labs LLC",
+        "url": "https://sevencubedseven.com"
+      }
+    }
+    </script>
+    
+    <!-- Critical CSS -->
     <style>
-        :root {
-            --s7-gold: #d4af37;
-            --s7-gold-light: #f4d35e;
-            --s7-gold-dark: #b8960c;
-            --s7-navy: #0a0a1a;
-            --s7-navy-light: #12122a;
-            --s7-text: #e8e8e8;
-            --s7-text-dim: #a0a0a0;
-            --s7-purple: #8800ff;
-            --s7-purple-light: #aa44ff;
-        }
-        
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --gold: #d4af37;
+            --gold-light: #f4d03f;
+            --dark-bg: #0a0a1a;
+            --dark-card: #12121f;
+            --dark-border: #2a2a3a;
+            --text-primary: #e8e8e8;
+            --text-secondary: #a0a0a0;
+            --purple: #8800ff;
+            --purple-light: #aa44ff;
+        }
         
         body {
             font-family: 'Raleway', sans-serif;
-            background: var(--s7-navy);
-            color: var(--s7-text);
-            line-height: 1.7;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
             padding-top: 60px;
-            min-height: 100vh;
         }
         
-        /* ══════════════════════════════════════════════════════════════════════
-           UNIVERSAL NAVIGATION
-           ══════════════════════════════════════════════════════════════════════ */
+        /* ===== UNIVERSAL NAVIGATION ===== */
         .s7-nav {
             position: fixed;
             top: 0;
@@ -50,18 +87,12 @@
             height: 60px;
             background: rgba(10, 10, 26, 0.97);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(136, 0, 255, 0.3);
             z-index: 9999;
-        }
-        
-        .s7-nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            height: 100%;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 20px;
+            padding: 0 30px;
         }
         
         .s7-nav-logo {
@@ -71,141 +102,133 @@
             text-decoration: none;
         }
         
-        .s7-nav-logo-icon {
+        .s7-nav-cube {
             width: 36px;
             height: 36px;
             position: relative;
         }
         
-        .s7-nav-logo-icon::before {
+        .s7-nav-cube::before,
+        .s7-nav-cube::after {
             content: '';
             position: absolute;
-            width: 100%;
-            height: 100%;
-            border: 2px solid var(--s7-gold);
-            transform: rotate(45deg);
-            opacity: 0.5;
+            border: 2px solid var(--gold);
         }
         
-        .s7-nav-logo-icon::after {
-            content: '';
-            position: absolute;
-            width: 55%;
-            height: 55%;
-            top: 22.5%;
-            left: 22.5%;
-            border: 2px solid var(--s7-gold);
-            transform: rotate(45deg);
+        .s7-nav-cube::before {
+            width: 24px;
+            height: 24px;
+            top: 6px;
+            left: 0;
         }
         
-        .s7-nav-logo-text {
+        .s7-nav-cube::after {
+            width: 24px;
+            height: 24px;
+            top: 0;
+            left: 6px;
+            background: rgba(212, 175, 55, 0.1);
+        }
+        
+        .s7-nav-brand {
             font-family: 'Cinzel', serif;
-            font-size: 1rem;
-            color: var(--s7-gold);
+            font-size: 1.1rem;
+            color: var(--gold);
             letter-spacing: 1px;
         }
         
         .s7-nav-links {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 8px;
         }
         
         .s7-nav-link {
-            color: var(--s7-text-dim);
+            color: var(--text-secondary);
             text-decoration: none;
+            padding: 8px 16px;
             font-size: 0.85rem;
-            padding: 8px 14px;
-            border-radius: 6px;
-            transition: all 0.3s ease;
+            transition: color 0.3s;
+            font-weight: 500;
         }
         
-        .s7-nav-link:hover { color: var(--s7-gold); background: rgba(212, 175, 55, 0.1); }
-        .s7-nav-link.active { color: var(--s7-gold); }
-        
-        .s7-nav-dropdown { position: relative; }
-        
-        .s7-nav-dropdown-btn {
-            color: var(--s7-text-dim);
-            font-size: 0.85rem;
-            padding: 8px 14px;
-            border-radius: 6px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            background: none;
-            border: none;
-            font-family: inherit;
-            transition: all 0.3s ease;
+        .s7-nav-link:hover {
+            color: var(--gold);
         }
         
-        .s7-nav-dropdown-btn:hover { color: var(--s7-gold); background: rgba(212, 175, 55, 0.1); }
-        .s7-nav-dropdown-btn::after { content: '▼'; font-size: 0.55rem; }
+        .s7-nav-link.active {
+            color: var(--purple);
+        }
         
-        .s7-nav-dropdown-menu {
+        .s7-nav-dropdown {
+            position: relative;
+        }
+        
+        .s7-nav-dropdown-content {
             position: absolute;
             top: 100%;
             right: 0;
-            background: var(--s7-navy-light);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 10px;
-            padding: 8px;
+            background: rgba(18, 18, 31, 0.98);
+            border: 1px solid var(--dark-border);
+            border-radius: 8px;
+            padding: 8px 0;
             min-width: 220px;
             opacity: 0;
             visibility: hidden;
             transform: translateY(10px);
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            transition: all 0.3s;
         }
         
-        .s7-nav-dropdown:hover .s7-nav-dropdown-menu {
+        .s7-nav-dropdown:hover .s7-nav-dropdown-content {
             opacity: 1;
             visibility: visible;
-            transform: translateY(5px);
+            transform: translateY(0);
         }
         
         .s7-nav-dropdown-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 10px 12px;
-            color: var(--s7-text);
+            display: block;
+            padding: 10px 20px;
+            color: var(--text-secondary);
             text-decoration: none;
-            border-radius: 6px;
-            transition: all 0.2s ease;
+            font-size: 0.85rem;
+            transition: all 0.3s;
         }
         
-        .s7-nav-dropdown-item:hover { background: rgba(212, 175, 55, 0.1); color: var(--s7-gold); }
-        
-        .s7-nav-dropdown-icon { font-size: 1.1rem; width: 24px; text-align: center; }
-        .s7-nav-dropdown-text { font-size: 0.85rem; }
-        .s7-nav-dropdown-desc { font-size: 0.7rem; color: var(--s7-text-dim); }
+        .s7-nav-dropdown-item:hover {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold);
+        }
         
         .s7-nav-cta {
-            background: linear-gradient(135deg, var(--s7-gold) 0%, var(--s7-gold-dark) 100%);
-            color: #000;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
+            background: linear-gradient(135deg, var(--purple), #6600cc);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 4px;
             text-decoration: none;
-            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         
-        .s7-nav-cta:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
+        .s7-nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(136, 0, 255, 0.4);
+        }
         
-        .s7-nav-toggle {
+        .s7-nav-mobile-toggle {
             display: none;
             flex-direction: column;
             gap: 5px;
             cursor: pointer;
-            padding: 10px;
-            background: none;
-            border: none;
+            padding: 5px;
         }
         
-        .s7-nav-toggle span { width: 24px; height: 2px; background: var(--s7-gold); }
+        .s7-nav-mobile-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--gold);
+            transition: 0.3s;
+        }
         
         @media (max-width: 900px) {
             .s7-nav-links {
@@ -213,501 +236,524 @@
                 top: 60px;
                 left: 0;
                 right: 0;
-                background: var(--s7-navy);
+                bottom: 0;
+                background: rgba(10, 10, 26, 0.98);
                 flex-direction: column;
-                padding: 20px;
-                gap: 5px;
-                border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-                transform: translateY(-100%);
+                justify-content: flex-start;
+                padding-top: 40px;
+                gap: 0;
                 opacity: 0;
                 visibility: hidden;
-                transition: all 0.3s ease;
+                transition: all 0.3s;
             }
             
-            .s7-nav-links.active { transform: translateY(0); opacity: 1; visibility: visible; }
-            .s7-nav-toggle { display: flex; }
-            .s7-nav-link, .s7-nav-dropdown-btn { width: 100%; padding: 12px 15px; }
+            .s7-nav-links.active {
+                opacity: 1;
+                visibility: visible;
+            }
             
-            .s7-nav-dropdown-menu {
+            .s7-nav-link {
+                padding: 15px 30px;
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid var(--dark-border);
+            }
+            
+            .s7-nav-dropdown-content {
                 position: static;
                 opacity: 1;
                 visibility: visible;
                 transform: none;
-                box-shadow: none;
+                background: rgba(10, 10, 26, 0.5);
                 border: none;
-                background: rgba(0,0,0,0.2);
-                margin-top: 5px;
+                border-radius: 0;
             }
             
-            .s7-nav-cta { width: 100%; text-align: center; margin-top: 10px; }
+            .s7-nav-cta {
+                margin-top: 20px;
+            }
+            
+            .s7-nav-mobile-toggle {
+                display: flex;
+            }
         }
         
-        /* ══════════════════════════════════════════════════════════════════════
-           PAGE STYLES
-           ══════════════════════════════════════════════════════════════════════ */
-        
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
-        @keyframes pulse-purple { 0%, 100% { box-shadow: 0 0 30px rgba(136, 0, 255, 0.3); } 50% { box-shadow: 0 0 60px rgba(136, 0, 255, 0.6); } }
-        @keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
-        @keyframes twinkle { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
-        
-        .starfield {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            pointer-events: none;
-            overflow: hidden;
-            z-index: 0;
-        }
-        
-        .star {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: #fff;
-            border-radius: 50%;
-            animation: twinkle 3s ease-in-out infinite;
-        }
-        
+        /* ===== HERO SECTION ===== */
         .hero {
-            min-height: 90vh;
+            min-height: calc(100vh - 60px);
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             text-align: center;
             padding: 60px 20px;
             position: relative;
-            background: radial-gradient(ellipse at center, rgba(136, 0, 255, 0.1) 0%, transparent 60%);
+            overflow: hidden;
+            background: radial-gradient(ellipse at center, rgba(136, 0, 255, 0.1) 0%, transparent 70%);
         }
         
         .hero-number {
-            font-family: 'Cinzel', serif;
-            font-size: 8rem;
-            color: var(--s7-gold);
-            text-shadow: 0 0 80px rgba(212, 175, 55, 0.5);
-            animation: float 6s ease-in-out infinite;
+            font-family: 'Orbitron', monospace;
+            font-size: 6rem;
+            background: linear-gradient(135deg, var(--purple), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 60px rgba(136, 0, 255, 0.5);
             margin-bottom: 20px;
-            letter-spacing: 10px;
         }
         
         .hero-question {
-            font-size: 2rem;
-            color: var(--s7-purple-light);
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
             margin-bottom: 20px;
-            letter-spacing: 3px;
+            color: var(--text-primary);
         }
         
         .hero-subtitle {
-            font-size: 1.1rem;
-            color: var(--s7-text-dim);
+            font-size: 1.2rem;
+            color: var(--text-secondary);
             max-width: 600px;
             margin-bottom: 40px;
         }
         
-        .assessment-cta {
-            background: linear-gradient(135deg, rgba(136, 0, 255, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
-            border: 2px solid var(--s7-purple);
-            border-radius: 20px;
-            padding: 40px;
-            max-width: 500px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            animation: pulse-purple 3s ease-in-out infinite;
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         
-        .assessment-cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(136, 0, 255, 0.1), transparent);
-            animation: shimmer 3s infinite;
-        }
-        
-        .assessment-badge {
-            display: inline-block;
-            background: var(--s7-purple);
-            color: #fff;
-            padding: 6px 18px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-            position: relative;
-        }
-        
-        .assessment-title {
-            font-family: 'Cinzel', serif;
-            font-size: 1.6rem;
-            color: #fff;
-            margin-bottom: 10px;
-            position: relative;
-        }
-        
-        .assessment-subtitle {
-            color: rgba(255,255,255,0.7);
-            margin-bottom: 20px;
-            font-size: 0.95rem;
-            position: relative;
-        }
-        
-        .assessment-button {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--s7-purple) 0%, #6600cc 100%);
-            color: #fff;
-            padding: 15px 50px;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 700;
+        .btn {
+            padding: 15px 40px;
+            border-radius: 4px;
             text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: all 0.3s ease;
-            position: relative;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 0.95rem;
         }
         
-        .assessment-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 50px rgba(136, 0, 255, 0.7);
+        .btn-primary {
+            background: linear-gradient(135deg, var(--purple), #6600cc);
+            color: #fff;
         }
         
-        .assessment-meta {
-            color: rgba(255,255,255,0.4);
-            font-size: 0.8rem;
-            margin-top: 15px;
-            position: relative;
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(136, 0, 255, 0.4);
         }
         
-        .section {
-            padding: 80px 20px;
-            max-width: 1000px;
+        .btn-secondary {
+            border: 1px solid var(--purple);
+            color: var(--purple-light);
+            background: transparent;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(136, 0, 255, 0.1);
+        }
+        
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 100px 20px;
+            max-width: 1200px;
             margin: 0 auto;
-            position: relative;
         }
         
         .section-title {
             font-family: 'Cinzel', serif;
+            font-size: 2rem;
             text-align: center;
-            font-size: 1.8rem;
-            color: var(--s7-gold);
-            margin-bottom: 40px;
-            letter-spacing: 3px;
+            margin-bottom: 15px;
+            color: var(--purple-light);
         }
         
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 60px;
+            font-size: 1.1rem;
+        }
+        
+        /* ===== SIGNS GRID ===== */
         .signs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
         
         .sign-card {
-            background: rgba(136, 0, 255, 0.05);
-            border: 1px solid rgba(136, 0, 255, 0.2);
-            border-radius: 15px;
-            padding: 25px;
-            transition: all 0.3s ease;
+            background: var(--dark-card);
+            border: 1px solid var(--dark-border);
+            border-radius: 12px;
+            padding: 40px 30px;
+            transition: all 0.3s;
         }
         
         .sign-card:hover {
-            border-color: var(--s7-purple);
-            transform: translateY(-3px);
+            border-color: var(--purple);
+            transform: translateY(-5px);
         }
         
-        .sign-icon { font-size: 2rem; margin-bottom: 15px; }
-        .sign-title { color: var(--s7-purple-light); font-weight: 600; margin-bottom: 10px; }
-        .sign-desc { color: var(--s7-text-dim); font-size: 0.9rem; }
-        
-        .scripture-box {
-            background: rgba(212, 175, 55, 0.05);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            margin-top: 40px;
+        .sign-number {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.5rem;
+            color: var(--purple);
+            margin-bottom: 15px;
         }
         
-        .scripture-text {
-            font-style: italic;
-            color: var(--s7-gold-light);
-            font-size: 1.1rem;
+        .sign-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: var(--text-primary);
             margin-bottom: 10px;
         }
         
-        .scripture-ref {
-            color: var(--s7-text-dim);
+        .sign-desc {
+            color: var(--text-secondary);
             font-size: 0.9rem;
+            line-height: 1.7;
         }
         
-        /* ══════════════════════════════════════════════════════════════════════
-           UNIVERSAL FOOTER
-           ══════════════════════════════════════════════════════════════════════ */
+        /* ===== DIMENSIONS ===== */
+        .dimensions-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .dimension-row {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: var(--dark-card);
+            padding: 20px 30px;
+            border-radius: 8px;
+            border-left: 4px solid var(--purple);
+        }
+        
+        .dimension-number {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.5rem;
+            color: var(--purple);
+            min-width: 40px;
+        }
+        
+        .dimension-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            color: var(--text-primary);
+            min-width: 200px;
+        }
+        
+        .dimension-desc {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+        
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(136, 0, 255, 0.2), rgba(212, 175, 55, 0.1));
+            border: 1px solid var(--purple);
+            border-radius: 12px;
+            padding: 60px;
+            text-align: center;
+        }
+        
+        .cta-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+        
+        .cta-desc {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+        
+        /* ===== FOOTER ===== */
         .s7-footer {
-            background: linear-gradient(180deg, var(--s7-navy) 0%, #050510 100%);
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            background: linear-gradient(180deg, #0a0a1a 0%, #050510 100%);
+            border-top: 1px solid rgba(136, 0, 255, 0.3);
             padding: 60px 20px 30px;
-            position: relative;
         }
-        
-        .s7-footer-container { max-width: 1200px; margin: 0 auto; }
         
         .s7-footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 40px;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
         
-        .s7-footer-section h4 {
+        .s7-footer-col h4 {
             font-family: 'Cinzel', serif;
-            color: var(--s7-gold);
+            color: var(--gold);
             font-size: 0.9rem;
             margin-bottom: 20px;
             letter-spacing: 2px;
         }
         
-        .s7-footer-links { list-style: none; }
-        .s7-footer-links li { margin-bottom: 10px; }
-        
-        .s7-footer-links a {
-            color: var(--s7-text-dim);
+        .s7-footer-col a {
+            display: block;
+            color: var(--text-secondary);
             text-decoration: none;
             font-size: 0.85rem;
-            transition: color 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            padding: 6px 0;
+            transition: color 0.3s;
         }
         
-        .s7-footer-links a:hover { color: var(--s7-gold); }
-        .s7-footer-links .icon { font-size: 0.9rem; width: 18px; }
+        .s7-footer-col a:hover {
+            color: var(--gold);
+        }
         
         .s7-footer-bottom {
-            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
             padding-top: 30px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
+            border-top: 1px solid var(--dark-border);
         }
         
         .s7-footer-formula {
-            font-family: 'Cinzel', serif;
+            font-family: 'Orbitron', monospace;
             font-size: 1.4rem;
-            color: var(--s7-gold);
-            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            color: var(--gold);
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            margin-bottom: 10px;
         }
         
         .s7-footer-tagline {
-            color: var(--s7-text-dim);
+            color: var(--text-secondary);
             font-size: 0.8rem;
             letter-spacing: 3px;
-            text-transform: uppercase;
+            margin-bottom: 15px;
         }
         
-        .s7-footer-copy { color: rgba(255,255,255,0.3); font-size: 0.75rem; }
-        .s7-footer-copy a { color: rgba(212, 175, 55, 0.5); text-decoration: none; }
+        .s7-footer-copy {
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+        }
         
         @media (max-width: 768px) {
-            .hero-number { font-size: 4rem; }
-            .hero-question { font-size: 1.4rem; }
-            .s7-footer-grid { grid-template-columns: 1fr 1fr; }
+            .hero-number {
+                font-size: 4rem;
+            }
+            
+            .hero-question {
+                font-size: 1.8rem;
+            }
+            
+            .dimension-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .s7-footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .cta-section {
+                padding: 40px 20px;
+            }
         }
     </style>
 </head>
 <body>
-
-<!-- STARFIELD -->
-<div class="starfield" id="starfield"></div>
-
-<!-- NAVIGATION -->
-<nav class="s7-nav">
-    <div class="s7-nav-container">
+    <!-- Navigation -->
+    <nav class="s7-nav">
         <a href="https://sevencubedseven.com" class="s7-nav-logo">
-            <div class="s7-nav-logo-icon"></div>
-            <span class="s7-nav-logo-text">7³×7 LABS</span>
+            <div class="s7-nav-cube"></div>
+            <span class="s7-nav-brand">7³×7 LABS</span>
         </a>
         
-        <button class="s7-nav-toggle" onclick="document.querySelector('.s7-nav-links').classList.toggle('active')">
-            <span></span><span></span><span></span>
-        </button>
-        
-        <div class="s7-nav-links">
+        <div class="s7-nav-links" id="navLinks">
             <a href="https://144000.ai" class="s7-nav-link active">144,000</a>
             <a href="https://2401.is" class="s7-nav-link">Mathematics</a>
             <a href="https://divineinsurgent.live" class="s7-nav-link">Insurgent</a>
             
             <div class="s7-nav-dropdown">
-                <button class="s7-nav-dropdown-btn">Tools</button>
-                <div class="s7-nav-dropdown-menu">
-                    <a href="assessment.html" class="s7-nav-dropdown-item">
-                        <span class="s7-nav-dropdown-icon">✨</span>
-                        <div><div class="s7-nav-dropdown-text">144,000 Assessment</div><div class="s7-nav-dropdown-desc">Discover your calling</div></div>
-                    </a>
-                    <a href="https://2401.is/calculator.html" class="s7-nav-dropdown-item">
-                        <span class="s7-nav-dropdown-icon">⚡</span>
-                        <div><div class="s7-nav-dropdown-text">C⁷ Calculator</div><div class="s7-nav-dropdown-desc">Your consciousness level</div></div>
-                    </a>
-                    <a href="https://2401.is/probability.html" class="s7-nav-dropdown-item">
-                        <span class="s7-nav-dropdown-icon">📊</span>
-                        <div><div class="s7-nav-dropdown-text">Probability Cascade</div><div class="s7-nav-dropdown-desc">Watch impossibility unfold</div></div>
-                    </a>
-                    <a href="https://divineinsurgent.live/mission.html" class="s7-nav-dropdown-item">
-                        <span class="s7-nav-dropdown-icon">⚔️</span>
-                        <div><div class="s7-nav-dropdown-text">Daily Mission</div><div class="s7-nav-dropdown-desc">Your tactical briefing</div></div>
-                    </a>
-                    <a href="https://sevencubedseven.com/books.html" class="s7-nav-dropdown-item">
-                        <span class="s7-nav-dropdown-icon">📚</span>
-                        <div><div class="s7-nav-dropdown-text">Book Finder</div><div class="s7-nav-dropdown-desc">Personalized recommendations</div></div>
-                    </a>
+                <span class="s7-nav-link" style="cursor: pointer;">Tools ▾</span>
+                <div class="s7-nav-dropdown-content">
+                    <a href="https://144000.ai/assessment.html" class="s7-nav-dropdown-item">✨ 144,000 Assessment</a>
+                    <a href="https://2401.is/calculator.html" class="s7-nav-dropdown-item">⚡ C⁷ Calculator</a>
+                    <a href="https://2401.is/probability.html" class="s7-nav-dropdown-item">📊 Probability Cascade</a>
+                    <a href="https://divineinsurgent.live/mission.html" class="s7-nav-dropdown-item">⚔️ Daily Mission</a>
+                    <a href="https://sevencubedseven.com/books.html" class="s7-nav-dropdown-item">📚 Book Finder</a>
                 </div>
             </div>
             
-            <a href="https://www.amazon.com/s?k=julio+c.+medina" target="_blank" class="s7-nav-cta">📚 All Books</a>
+            <a href="https://www.amazon.com/s?k=julio+c.+medina" class="s7-nav-cta" target="_blank">📚 All Books</a>
         </div>
-    </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-    <div class="hero-number">144,000</div>
-    <h1 class="hero-question">Are You Being Called?</h1>
-    <p class="hero-subtitle">
-        Something's been awakening in you. A hunger for truth. A sense of divine timing. 
-        A knowing that you're here for something greater.
-    </p>
+        
+        <div class="s7-nav-mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
     
-    <div class="assessment-cta">
-        <div class="assessment-badge">✨ Interactive Assessment</div>
-        <h2 class="assessment-title">DISCOVER YOUR CALLING</h2>
-        <p class="assessment-subtitle">21 questions across 7 dimensions of prophetic awakening</p>
-        <a href="assessment.html" class="assessment-button">Begin Assessment</a>
-        <p class="assessment-meta">5 minutes • Completely private • Instant results</p>
-    </div>
-</section>
-
-<!-- SIGNS -->
-<section class="section">
-    <h2 class="section-title">SIGNS OF THE CALLING</h2>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-number">144,000</div>
+        <h1 class="hero-question">Are You Being Called?</h1>
+        <p class="hero-subtitle">The prophetic network is forming. 21 questions across 7 dimensions reveal the strength of your calling indicators.</p>
+        
+        <div class="hero-cta">
+            <a href="https://144000.ai/assessment.html" class="btn btn-primary">Take the Assessment</a>
+            <a href="https://2401.is/calculator.html" class="btn btn-secondary">Calculate Your C-Level</a>
+        </div>
+    </section>
     
-    <div class="signs-grid">
-        <div class="sign-card">
-            <div class="sign-icon">🔥</div>
-            <h3 class="sign-title">Insatiable Truth Hunger</h3>
-            <p class="sign-desc">Surface-level answers no longer satisfy. You dig deeper than most.</p>
-        </div>
+    <!-- Signs Section -->
+    <section>
+        <h2 class="section-title">SIGNS OF CALLING</h2>
+        <p class="section-subtitle">These patterns often appear in those being prepared.</p>
         
-        <div class="sign-card">
-            <div class="sign-icon">👁️</div>
-            <h3 class="sign-title">Pattern Recognition</h3>
-            <p class="sign-desc">You see connections others miss. The numbers speak to you.</p>
+        <div class="signs-grid">
+            <div class="sign-card">
+                <div class="sign-number">01</div>
+                <div class="sign-title">Insatiable Truth Hunger</div>
+                <div class="sign-desc">You can't stop seeking deeper understanding. Surface answers no longer satisfy. You dig until you find bedrock truth.</div>
+            </div>
+            
+            <div class="sign-card">
+                <div class="sign-number">02</div>
+                <div class="sign-title">Pattern Recognition</div>
+                <div class="sign-desc">You see connections others miss. Mathematical relationships, prophetic timelines, hidden structures become visible to you.</div>
+            </div>
+            
+            <div class="sign-card">
+                <div class="sign-number">03</div>
+                <div class="sign-title">Separation Experience</div>
+                <div class="sign-desc">You feel increasingly separated from mainstream culture, entertainment, and even religious institutions. You don't fit anymore.</div>
+            </div>
+            
+            <div class="sign-card">
+                <div class="sign-number">04</div>
+                <div class="sign-title">Divine Timing Awareness</div>
+                <div class="sign-desc">You sense urgency. The awareness that we're living in unprecedented times presses upon you constantly.</div>
+            </div>
+            
+            <div class="sign-card">
+                <div class="sign-number">05</div>
+                <div class="sign-title">Supernatural Sensitivity</div>
+                <div class="sign-desc">Dreams, impressions, divine appointments. You experience guidance beyond natural explanation.</div>
+            </div>
+            
+            <div class="sign-card">
+                <div class="sign-number">06</div>
+                <div class="sign-title">Character Refinement</div>
+                <div class="sign-desc">Intense trials that seem designed to purify. Each challenge develops specific character qualities you'll need.</div>
+            </div>
         </div>
-        
-        <div class="sign-card">
-            <div class="sign-icon">⚡</div>
-            <h3 class="sign-title">Divine Timing Awareness</h3>
-            <p class="sign-desc">You sense we're in a critical window. Something big is coming.</p>
-        </div>
-        
-        <div class="sign-card">
-            <div class="sign-icon">🌊</div>
-            <h3 class="sign-title">Separation Experience</h3>
-            <p class="sign-desc">You feel different from the crowd. Called out, set apart.</p>
-        </div>
-        
-        <div class="sign-card">
-            <div class="sign-icon">✨</div>
-            <h3 class="sign-title">Supernatural Sensitivity</h3>
-            <p class="sign-desc">Dreams, impressions, promptings - the invisible realm feels close.</p>
-        </div>
-        
-        <div class="sign-card">
-            <div class="sign-icon">💎</div>
-            <h3 class="sign-title">Character Refinement</h3>
-            <p class="sign-desc">You're being pressed, tested, purified. Growth through fire.</p>
-        </div>
-    </div>
+    </section>
     
-    <div class="scripture-box">
-        <p class="scripture-text">"These are they which were not defiled... these were redeemed from among men, being the firstfruits unto God and to the Lamb."</p>
-        <p class="scripture-ref">— Revelation 14:4</p>
-    </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="s7-footer">
-    <div class="s7-footer-container">
+    <!-- Dimensions Section -->
+    <section>
+        <h2 class="section-title">THE 7 ASSESSMENT DIMENSIONS</h2>
+        <p class="section-subtitle">Our assessment measures calling indicators across these prophetic dimensions.</p>
+        
+        <div class="dimensions-container">
+            <div class="dimension-row">
+                <div class="dimension-number">1</div>
+                <div class="dimension-name">Truth Hunger</div>
+                <div class="dimension-desc">Measuring your drive for deeper understanding beyond surface answers</div>
+            </div>
+            
+            <div class="dimension-row">
+                <div class="dimension-number">2</div>
+                <div class="dimension-name">Pattern Recognition</div>
+                <div class="dimension-desc">Your ability to see connections, timelines, and hidden structures</div>
+            </div>
+            
+            <div class="dimension-row">
+                <div class="dimension-number">3</div>
+                <div class="dimension-name">Divine Timing</div>
+                <div class="dimension-desc">Awareness of prophetic urgency and end-time significance</div>
+            </div>
+            
+            <div class="dimension-row">
+                <div class="dimension-number">4</div>
+                <div class="dimension-name">Separation Experience</div>
+                <div class="dimension-desc">The degree of your calling out from mainstream systems</div>
+            </div>
+            
+            <div class="dimension-row">
+                <div class="dimension-number">5</div>
+                <div class="dimension-name">Supernatural Sensitivity</div>
+                <div class="dimension-desc">Openness to divine guidance, dreams, and spiritual impressions</div>
+            </div>
+            
+            <div class="dimension-row">
+                <div class="dimension-number">6</div>
+                <div class="dimension-name">Character Refinement</div>
+                <div class="dimension-desc">Intensity of purifying trials and character development</div>
+            </div>
+            
+            <div class="dimension-row">
+                <div class="dimension-number">7</div>
+                <div class="dimension-name">Mission Awareness</div>
+                <div class="dimension-desc">Clarity about your unique role in the prophetic network</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section>
+        <div class="cta-section">
+            <h2 class="cta-title">Ready to Discover Your Calling?</h2>
+            <p class="cta-desc">21 questions. 7 dimensions. ~5 minutes. Completely private. Instant results.</p>
+            <a href="https://144000.ai/assessment.html" class="btn btn-primary">Begin Assessment</a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="s7-footer">
         <div class="s7-footer-grid">
-            <div class="s7-footer-section">
+            <div class="s7-footer-col">
                 <h4>PORTALS</h4>
-                <ul class="s7-footer-links">
-                    <li><a href="https://sevencubedseven.com"><span class="icon">🏠</span> Main Hub</a></li>
-                    <li><a href="https://144000.ai"><span class="icon">✨</span> 144,000 Portal</a></li>
-                    <li><a href="https://2401.is"><span class="icon">🔢</span> Mathematics</a></li>
-                    <li><a href="https://divineinsurgent.live"><span class="icon">⚔️</span> Divine Insurgent</a></li>
-                    <li><a href="https://realitynegotiable.is"><span class="icon">🧠</span> Reality Physics</a></li>
-                    <li><a href="https://c343.io"><span class="icon">📜</span> Licensing</a></li>
-                </ul>
+                <a href="https://sevencubedseven.com">🏠 Main Hub</a>
+                <a href="https://144000.ai">✨ 144,000 Portal</a>
+                <a href="https://2401.is">📐 Mathematics</a>
+                <a href="https://divineinsurgent.live">⚔️ Divine Insurgent</a>
+                <a href="https://realitynegotiable.is">🌀 Reality Negotiable</a>
+                <a href="https://c343.io">🏢 Enterprise</a>
             </div>
             
-            <div class="s7-footer-section">
+            <div class="s7-footer-col">
                 <h4>TOOLS</h4>
-                <ul class="s7-footer-links">
-                    <li><a href="assessment.html"><span class="icon">✨</span> Assessment</a></li>
-                    <li><a href="https://2401.is/calculator.html"><span class="icon">⚡</span> Calculator</a></li>
-                    <li><a href="https://2401.is/probability.html"><span class="icon">📊</span> Probability</a></li>
-                    <li><a href="https://divineinsurgent.live/mission.html"><span class="icon">⚔️</span> Daily Mission</a></li>
-                    <li><a href="https://sevencubedseven.com/books.html"><span class="icon">📚</span> Book Finder</a></li>
-                </ul>
+                <a href="https://144000.ai/assessment.html">✨ 144,000 Assessment</a>
+                <a href="https://2401.is/calculator.html">⚡ C⁷ Calculator</a>
+                <a href="https://2401.is/probability.html">📊 Probability Cascade</a>
+                <a href="https://divineinsurgent.live/mission.html">⚔️ Daily Mission</a>
+                <a href="https://sevencubedseven.com/books.html">📚 Book Finder</a>
             </div>
             
-            <div class="s7-footer-section">
+            <div class="s7-footer-col">
                 <h4>RESOURCES</h4>
-                <ul class="s7-footer-links">
-                    <li><a href="https://www.amazon.com/s?k=julio+c.+medina" target="_blank"><span class="icon">📚</span> All 33+ Books</a></li>
-                    <li><a href="https://twitter.com/7Cubed7" target="_blank"><span class="icon">𝕏</span> @7Cubed7</a></li>
-                    <li><a href="mailto:7cubed7@proton.me"><span class="icon">✉️</span> Contact</a></li>
-                </ul>
+                <a href="https://www.amazon.com/s?k=julio+c.+medina" target="_blank">📖 All Books on Amazon</a>
+                <a href="https://twitter.com/7Cubed7" target="_blank">𝕏 @7Cubed7</a>
+                <a href="mailto:7cubed7@proton.me">✉️ Contact</a>
             </div>
             
-            <div class="s7-footer-section">
+            <div class="s7-footer-col">
                 <h4>CONNECT</h4>
-                <ul class="s7-footer-links">
-                    <li><a href="mailto:7cubed7@proton.me">7cubed7@proton.me</a></li>
-                    <li><a href="mailto:ConsciousCodeLabs@proton.me">Business</a></li>
-                    <li><a href="mailto:hello@c343.io">Licensing</a></li>
-                </ul>
+                <a href="mailto:7cubed7@proton.me">7cubed7@proton.me</a>
+                <a href="mailto:ConsciousCodeLabs@proton.me">ConsciousCodeLabs@proton.me</a>
+                <a href="mailto:hello@c343.io">hello@c343.io</a>
             </div>
         </div>
         
         <div class="s7-footer-bottom">
             <div class="s7-footer-formula">7³ × 7 = 2,401</div>
-            <div class="s7-footer-tagline">Consciousness Architecture</div>
-            <div class="s7-footer-copy">© 2025 <a href="https://sevencubedseven.com">Seven Cubed Seven Labs LLC</a>. All rights reserved.</div>
+            <div class="s7-footer-tagline">CONSCIOUSNESS ARCHITECTURE</div>
+            <div class="s7-footer-copy">© 2025 Seven Cubed Seven Labs LLC. All rights reserved.</div>
         </div>
-    </div>
-</footer>
-
-<script>
-// Generate starfield
-const starfield = document.getElementById('starfield');
-for (let i = 0; i < 100; i++) {
-    const star = document.createElement('div');
-    star.className = 'star';
-    star.style.left = Math.random() * 100 + '%';
-    star.style.top = Math.random() * 100 + '%';
-    star.style.animationDelay = Math.random() * 3 + 's';
-    star.style.opacity = Math.random() * 0.5 + 0.2;
-    starfield.appendChild(star);
-}
-</script>
-
+    </footer>
 </body>
 </html>
