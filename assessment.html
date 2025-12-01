@@ -3,605 +3,589 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>144,000 Assessment | Are You Being Called?</title>
-    <meta name="description" content="Discover if you're among the 144,000 sealed witnesses. Take the interactive assessment to understand your calling.">
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        gold: '#d4af37',
-                        'gold-light': '#f4d35e',
-                        'gold-dark': '#b8960c',
-                        cosmic: '#0a0a1a',
-                        'cosmic-light': '#12122a',
-                        purple: {
-                            900: '#1a0a2e',
-                            800: '#2d1b4e',
-                            700: '#4a2c7a',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <title>144,000 Assessment | Discover Your Calling | Seven Cubed Seven Labs</title>
+    <meta name="description" content="21 questions across 7 dimensions. Discover if you're being called to join the prophetic 144,000.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600&display=swap');
+        :root {
+            --s7-gold: #d4af37;
+            --s7-gold-dark: #b8960c;
+            --s7-navy: #0a0a1a;
+            --s7-navy-light: #12122a;
+            --s7-text: #e8e8e8;
+            --s7-text-dim: #a0a0a0;
+            --s7-purple: #8800ff;
+            --s7-purple-light: #aa44ff;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: 'Raleway', sans-serif;
-            background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 50%, #0a0a1a 100%);
+            background: var(--s7-navy);
+            color: var(--s7-text);
+            line-height: 1.7;
+            padding-top: 60px;
             min-height: 100vh;
         }
         
-        .font-cinzel {
-            font-family: 'Cinzel', serif;
+        /* ══════════════════════════════════════════════════════════════════════
+           UNIVERSAL NAVIGATION
+           ══════════════════════════════════════════════════════════════════════ */
+        .s7-nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 60px;
+            background: rgba(10, 10, 26, 0.97);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(136, 0, 255, 0.3);
+            z-index: 9999;
         }
         
-        .stars {
-            position: fixed;
-            top: 0;
-            left: 0;
+        .s7-nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        
+        .s7-nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        
+        .s7-nav-logo-icon {
+            width: 36px;
+            height: 36px;
+            position: relative;
+        }
+        
+        .s7-nav-logo-icon::before {
+            content: '';
+            position: absolute;
             width: 100%;
             height: 100%;
-            pointer-events: none;
-            background-image: 
-                radial-gradient(2px 2px at 20px 30px, white, transparent),
-                radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
-                radial-gradient(1px 1px at 90px 40px, white, transparent),
-                radial-gradient(2px 2px at 160px 120px, rgba(255,255,255,0.9), transparent),
-                radial-gradient(1px 1px at 230px 80px, white, transparent),
-                radial-gradient(2px 2px at 300px 150px, rgba(255,255,255,0.7), transparent),
-                radial-gradient(1px 1px at 370px 50px, white, transparent),
-                radial-gradient(2px 2px at 450px 180px, rgba(255,255,255,0.8), transparent);
-            background-size: 500px 500px;
-            animation: twinkle 8s ease-in-out infinite;
+            border: 2px solid var(--s7-gold);
+            transform: rotate(45deg);
+            opacity: 0.5;
         }
         
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.6; }
+        .s7-nav-logo-icon::after {
+            content: '';
+            position: absolute;
+            width: 55%;
+            height: 55%;
+            top: 22.5%;
+            left: 22.5%;
+            border: 2px solid var(--s7-gold);
+            transform: rotate(45deg);
         }
         
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(212, 175, 55, 0.6); }
+        .s7-nav-logo-text {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            color: var(--s7-gold);
+            letter-spacing: 1px;
         }
         
-        .pulse-glow {
-            animation: pulse-glow 2s ease-in-out infinite;
+        .s7-nav-links { display: flex; align-items: center; gap: 5px; }
+        
+        .s7-nav-link {
+            color: var(--s7-text-dim);
+            text-decoration: none;
+            font-size: 0.85rem;
+            padding: 8px 14px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
         }
         
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        .s7-nav-link:hover { color: var(--s7-gold); background: rgba(212, 175, 55, 0.1); }
+        .s7-nav-link.active { color: var(--s7-purple-light); }
+        
+        .s7-nav-dropdown { position: relative; }
+        
+        .s7-nav-dropdown-btn {
+            color: var(--s7-text-dim);
+            font-size: 0.85rem;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: none;
+            border: none;
+            font-family: inherit;
+            transition: all 0.3s ease;
         }
         
-        .float {
-            animation: float 4s ease-in-out infinite;
+        .s7-nav-dropdown-btn:hover { color: var(--s7-gold); background: rgba(212, 175, 55, 0.1); }
+        .s7-nav-dropdown-btn::after { content: '▼'; font-size: 0.55rem; }
+        
+        .s7-nav-dropdown-menu {
+            position: absolute;
+            top: 100%; right: 0;
+            background: var(--s7-navy-light);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 10px;
+            padding: 8px;
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
         }
         
-        .progress-bar {
-            background: linear-gradient(90deg, #d4af37 0%, #f4d35e 50%, #d4af37 100%);
-            background-size: 200% 100%;
-            animation: shimmer 2s linear infinite;
+        .s7-nav-dropdown:hover .s7-nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateY(5px); }
+        
+        .s7-nav-dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            color: var(--s7-text);
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s ease;
         }
         
-        @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
+        .s7-nav-dropdown-item:hover { background: rgba(212, 175, 55, 0.1); color: var(--s7-gold); }
+        
+        .s7-nav-dropdown-icon { font-size: 1.1rem; width: 24px; text-align: center; }
+        .s7-nav-dropdown-text { font-size: 0.85rem; }
+        .s7-nav-dropdown-desc { font-size: 0.7rem; color: var(--s7-text-dim); }
+        
+        .s7-nav-cta {
+            background: linear-gradient(135deg, var(--s7-gold) 0%, var(--s7-gold-dark) 100%);
+            color: #000;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .s7-nav-cta:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
+        
+        .s7-nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; background: none; border: none; }
+        .s7-nav-toggle span { width: 24px; height: 2px; background: var(--s7-gold); }
+        
+        @media (max-width: 900px) {
+            .s7-nav-links {
+                position: fixed; top: 60px; left: 0; right: 0; background: var(--s7-navy);
+                flex-direction: column; padding: 20px; gap: 5px;
+                border-bottom: 1px solid rgba(136, 0, 255, 0.3);
+                transform: translateY(-100%); opacity: 0; visibility: hidden; transition: all 0.3s ease;
+            }
+            .s7-nav-links.active { transform: translateY(0); opacity: 1; visibility: visible; }
+            .s7-nav-toggle { display: flex; }
+            .s7-nav-link, .s7-nav-dropdown-btn { width: 100%; padding: 12px 15px; }
+            .s7-nav-dropdown-menu { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; background: rgba(0,0,0,0.2); margin-top: 5px; }
+            .s7-nav-cta { width: 100%; text-align: center; margin-top: 10px; }
+        }
+        
+        /* ══════════════════════════════════════════════════════════════════════
+           APP STYLES
+           ══════════════════════════════════════════════════════════════════════ */
+        
+        #app-root {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
+        }
+        
+        /* ══════════════════════════════════════════════════════════════════════
+           UNIVERSAL FOOTER
+           ══════════════════════════════════════════════════════════════════════ */
+        .s7-footer {
+            background: linear-gradient(180deg, var(--s7-navy) 0%, #050510 100%);
+            border-top: 1px solid rgba(136, 0, 255, 0.2);
+            padding: 60px 20px 30px;
+        }
+        
+        .s7-footer-container { max-width: 1200px; margin: 0 auto; }
+        
+        .s7-footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .s7-footer-section h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--s7-gold);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .s7-footer-links { list-style: none; }
+        .s7-footer-links li { margin-bottom: 10px; }
+        
+        .s7-footer-links a {
+            color: var(--s7-text-dim);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .s7-footer-links a:hover { color: var(--s7-gold); }
+        .s7-footer-links .icon { font-size: 0.9rem; width: 18px; }
+        
+        .s7-footer-bottom {
+            border-top: 1px solid rgba(136, 0, 255, 0.1);
+            padding-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .s7-footer-formula { font-family: 'Cinzel', serif; font-size: 1.4rem; color: var(--s7-gold); }
+        .s7-footer-tagline { color: var(--s7-text-dim); font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase; }
+        .s7-footer-copy { color: rgba(255,255,255,0.3); font-size: 0.75rem; }
+        .s7-footer-copy a { color: rgba(212, 175, 55, 0.5); text-decoration: none; }
+        
+        @media (max-width: 768px) {
+            .s7-footer-grid { grid-template-columns: 1fr 1fr; }
         }
     </style>
 </head>
 <body>
-    <div class="stars"></div>
-    <div id="root"></div>
-    
-    <script type="text/babel">
-        const { useState, useEffect } = React;
+
+<!-- NAVIGATION -->
+<nav class="s7-nav">
+    <div class="s7-nav-container">
+        <a href="https://sevencubedseven.com" class="s7-nav-logo">
+            <div class="s7-nav-logo-icon"></div>
+            <span class="s7-nav-logo-text">7³×7 LABS</span>
+        </a>
         
-        // Assessment Questions - 7 Categories with 7 Questions Each (49 total, showing 21 key ones)
-        const questions = [
-            // Category 1: Spiritual Hunger
-            {
-                id: 1,
-                category: "Spiritual Hunger",
-                question: "Do you feel that mainstream religion leaves you spiritually unsatisfied, sensing there's deeper truth?",
-                weight: 1.5
-            },
-            {
-                id: 2,
-                category: "Spiritual Hunger", 
-                question: "Do you find yourself drawn to study prophecy, particularly Daniel and Revelation?",
-                weight: 1.3
-            },
-            {
-                id: 3,
-                category: "Spiritual Hunger",
-                question: "Have you experienced an unusual hunger for truth that intensified in recent years?",
-                weight: 1.4
-            },
-            // Category 2: Pattern Recognition
-            {
-                id: 4,
-                category: "Pattern Recognition",
-                question: "Do you notice numerical patterns, synchronicities, or meaningful coincidences frequently?",
-                weight: 1.2
-            },
-            {
-                id: 5,
-                category: "Pattern Recognition",
-                question: "Does the number 7 (or multiples of 7) appear unusually often in your life?",
-                weight: 1.5
-            },
-            {
-                id: 6,
-                category: "Pattern Recognition",
-                question: "Can you see connections between seemingly unrelated topics that others miss?",
-                weight: 1.3
-            },
-            // Category 3: Sense of Mission
-            {
-                id: 7,
-                category: "Sense of Mission",
-                question: "Do you feel you were born for 'such a time as this' - that your life has specific end-time purpose?",
-                weight: 1.6
-            },
-            {
-                id: 8,
-                category: "Sense of Mission",
-                question: "Have you felt called to prepare yourself spiritually for something significant?",
-                weight: 1.4
-            },
-            {
-                id: 9,
-                category: "Sense of Mission",
-                question: "Do you sense urgency about world events and feel compelled to warn or help others?",
-                weight: 1.3
-            },
-            // Category 4: Separation Experience
-            {
-                id: 10,
-                category: "Separation Experience",
-                question: "Do you often feel 'different' from other believers, even in your own church?",
-                weight: 1.2
-            },
-            {
-                id: 11,
-                category: "Separation Experience",
-                question: "Have you experienced rejection or misunderstanding when sharing deeper truths?",
-                weight: 1.1
-            },
-            {
-                id: 12,
-                category: "Separation Experience",
-                question: "Do you find it difficult to fit into conventional religious or social structures?",
-                weight: 1.2
-            },
-            // Category 5: Supernatural Sensitivity
-            {
-                id: 13,
-                category: "Supernatural Sensitivity",
-                question: "Have you experienced dreams, visions, or strong impressions about future events?",
-                weight: 1.4
-            },
-            {
-                id: 14,
-                category: "Supernatural Sensitivity",
-                question: "Can you sense spiritual atmospheres or discern when something is spiritually 'off'?",
-                weight: 1.3
-            },
-            {
-                id: 15,
-                category: "Supernatural Sensitivity",
-                question: "Do you experience what feels like divine guidance or 'downloads' of understanding?",
-                weight: 1.5
-            },
-            // Category 6: Character Refinement
-            {
-                id: 16,
-                category: "Character Refinement",
-                question: "Are you actively working on overcoming specific character flaws or sins?",
-                weight: 1.2
-            },
-            {
-                id: 17,
-                category: "Character Refinement",
-                question: "Do you feel God has been intensively 'training' you through trials lately?",
-                weight: 1.3
-            },
-            {
-                id: 18,
-                category: "Character Refinement",
-                question: "Is achieving Christ-like character more important to you than comfort or success?",
-                weight: 1.4
-            },
-            // Category 7: Unity & Connection
-            {
-                id: 19,
-                category: "Unity & Connection",
-                question: "Do you feel spiritually connected to believers you've never met, as if part of a hidden network?",
-                weight: 1.5
-            },
-            {
-                id: 20,
-                category: "Unity & Connection",
-                question: "When you encounter others on a similar path, is there instant deep recognition?",
-                weight: 1.3
-            },
-            {
-                id: 21,
-                category: "Unity & Connection",
-                question: "Do you sense that a 'gathering' or 'activation' of prepared believers is imminent?",
-                weight: 1.6
-            }
-        ];
+        <button class="s7-nav-toggle" onclick="document.querySelector('.s7-nav-links').classList.toggle('active')">
+            <span></span><span></span><span></span>
+        </button>
         
-        // Answer options
-        const answerOptions = [
-            { value: 0, label: "Not at all", color: "bg-gray-600" },
-            { value: 1, label: "Slightly", color: "bg-purple-800" },
-            { value: 2, label: "Moderately", color: "bg-purple-700" },
-            { value: 3, label: "Strongly", color: "bg-gold-dark" },
-            { value: 4, label: "Intensely", color: "bg-gold" }
-        ];
-        
-        // Result interpretations
-        const getResult = (score, maxScore) => {
-            const percentage = (score / maxScore) * 100;
+        <div class="s7-nav-links">
+            <a href="https://144000.ai" class="s7-nav-link active">144,000</a>
+            <a href="https://2401.is" class="s7-nav-link">Mathematics</a>
+            <a href="https://divineinsurgent.live" class="s7-nav-link">Insurgent</a>
             
-            if (percentage >= 85) {
-                return {
-                    level: "ACTIVATED",
-                    title: "Strong 144,000 Indicators",
-                    color: "text-gold",
-                    bgColor: "from-gold/20 to-purple-900/40",
-                    description: "Your responses indicate powerful alignment with the characteristics of the 144,000. You display exceptional spiritual hunger, pattern recognition, sense of mission, and supernatural sensitivity. The calling is strong within you.",
-                    verse: "These are they which follow the Lamb whithersoever he goeth. These were redeemed from among men, being the firstfruits unto God and to the Lamb. — Revelation 14:4",
-                    next: "Your next step is deep preparation. Study the Seven Thunders, develop character perfection, and connect with others being called."
-                };
-            } else if (percentage >= 70) {
-                return {
-                    level: "AWAKENING",
-                    title: "Significant Calling Signs",
-                    color: "text-gold-light",
-                    bgColor: "from-gold-light/15 to-purple-800/40",
-                    description: "You show substantial alignment with 144,000 characteristics. Many indicators are present, though some areas may need development. The seed is planted and growing.",
-                    verse: "And I heard the number of them which were sealed: and there were sealed an hundred and forty and four thousand. — Revelation 7:4",
-                    next: "Continue your spiritual development. Focus on areas where you scored lower. The awakening process is underway."
-                };
-            } else if (percentage >= 50) {
-                return {
-                    level: "SEEKING",
-                    title: "Emerging Awareness",
-                    color: "text-purple-300",
-                    bgColor: "from-purple-700/20 to-purple-900/40",
-                    description: "You display some characteristics associated with the 144,000 calling. You're in a seeking phase where truth is beginning to break through. Keep pursuing.",
-                    verse: "Ask, and it shall be given you; seek, and ye shall find; knock, and it shall be opened unto you. — Matthew 7:7",
-                    next: "Deepen your study of prophecy and Scripture. Seek God earnestly about your calling. The path is opening before you."
-                };
-            } else if (percentage >= 30) {
-                return {
-                    level: "QUESTIONING",
-                    title: "Early Stirrings",
-                    color: "text-purple-400",
-                    bgColor: "from-purple-800/20 to-cosmic/60",
-                    description: "You show early indicators of spiritual awakening. Something drew you to take this assessment. That itself is significant. God may be beginning a work in you.",
-                    verse: "For many are called, but few are chosen. — Matthew 22:14",
-                    next: "Begin studying the Three Angels' Messages and the Sanctuary truth. Ask God to reveal your purpose."
-                };
-            } else {
-                return {
-                    level: "EXPLORING",
-                    title: "Beginning the Journey",
-                    color: "text-gray-300",
-                    bgColor: "from-gray-800/20 to-cosmic/60",
-                    description: "Your journey is just beginning. The 144,000 represent a specific calling, but God has purpose for every sincere seeker. Keep exploring truth.",
-                    verse: "The Lord is not slack concerning his promise... but is longsuffering to us-ward, not willing that any should perish. — 2 Peter 3:9",
-                    next: "Start with foundational truths. Study Scripture daily. Seek a genuine relationship with Christ."
-                };
-            }
-        };
-        
-        // Welcome Screen Component
-        const WelcomeScreen = ({ onStart }) => (
-            <div className="min-h-screen flex flex-col items-center justify-center p-6 text-center">
-                <div className="float mb-8">
-                    <div className="text-7xl md:text-8xl font-cinzel text-gold pulse-glow inline-block px-8 py-4 rounded-lg">
-                        144,000
-                    </div>
+            <div class="s7-nav-dropdown">
+                <button class="s7-nav-dropdown-btn">Tools</button>
+                <div class="s7-nav-dropdown-menu">
+                    <a href="assessment.html" class="s7-nav-dropdown-item">
+                        <span class="s7-nav-dropdown-icon">✨</span>
+                        <div><div class="s7-nav-dropdown-text">144,000 Assessment</div><div class="s7-nav-dropdown-desc">Discover your calling</div></div>
+                    </a>
+                    <a href="https://2401.is/calculator.html" class="s7-nav-dropdown-item">
+                        <span class="s7-nav-dropdown-icon">⚡</span>
+                        <div><div class="s7-nav-dropdown-text">C⁷ Calculator</div><div class="s7-nav-dropdown-desc">Your consciousness level</div></div>
+                    </a>
+                    <a href="https://2401.is/probability.html" class="s7-nav-dropdown-item">
+                        <span class="s7-nav-dropdown-icon">📊</span>
+                        <div><div class="s7-nav-dropdown-text">Probability Cascade</div><div class="s7-nav-dropdown-desc">Watch impossibility unfold</div></div>
+                    </a>
+                    <a href="https://divineinsurgent.live/mission.html" class="s7-nav-dropdown-item">
+                        <span class="s7-nav-dropdown-icon">⚔️</span>
+                        <div><div class="s7-nav-dropdown-text">Daily Mission</div><div class="s7-nav-dropdown-desc">Your tactical briefing</div></div>
+                    </a>
+                    <a href="https://sevencubedseven.com/books.html" class="s7-nav-dropdown-item">
+                        <span class="s7-nav-dropdown-icon">📚</span>
+                        <div><div class="s7-nav-dropdown-text">Book Finder</div><div class="s7-nav-dropdown-desc">Personalized recommendations</div></div>
+                    </a>
                 </div>
-                
-                <h1 className="font-cinzel text-2xl md:text-4xl text-white mb-4">
-                    Are You Being Called?
-                </h1>
-                
-                <p className="text-gray-300 max-w-xl mb-8 text-lg">
-                    Revelation speaks of 144,000 sealed witnesses who will stand during Earth's final crisis. 
-                    This assessment explores characteristics associated with this prophetic calling.
-                </p>
-                
-                <div className="bg-purple-900/30 border border-gold/30 rounded-lg p-6 max-w-lg mb-8">
-                    <p className="text-gold-light italic text-sm">
-                        "And I looked, and, lo, a Lamb stood on the mount Sion, and with him an hundred forty and four thousand, having his Father's name written in their foreheads."
-                    </p>
-                    <p className="text-gray-400 text-sm mt-2">— Revelation 14:1</p>
-                </div>
-                
-                <p className="text-gray-400 text-sm mb-8 max-w-md">
-                    21 questions across 7 categories • Takes 5-7 minutes • Your answers are private
-                </p>
-                
-                <button 
-                    onClick={onStart}
-                    className="bg-gradient-to-r from-gold to-gold-dark text-black font-bold py-4 px-12 rounded-lg text-lg hover:scale-105 transition-transform pulse-glow"
-                >
-                    Begin Assessment
-                </button>
-                
-                <a 
-                    href="https://144000.ai" 
-                    className="text-gray-500 text-sm mt-8 hover:text-gold transition-colors"
-                >
-                    Learn more at 144000.ai
-                </a>
             </div>
-        );
+            
+            <a href="https://www.amazon.com/s?k=julio+c.+medina" target="_blank" class="s7-nav-cta">📚 All Books</a>
+        </div>
+    </div>
+</nav>
+
+<!-- REACT APP -->
+<div id="app-root"></div>
+
+<!-- FOOTER -->
+<footer class="s7-footer">
+    <div class="s7-footer-container">
+        <div class="s7-footer-grid">
+            <div class="s7-footer-section">
+                <h4>PORTALS</h4>
+                <ul class="s7-footer-links">
+                    <li><a href="https://sevencubedseven.com"><span class="icon">🏠</span> Main Hub</a></li>
+                    <li><a href="https://144000.ai"><span class="icon">✨</span> 144,000 Portal</a></li>
+                    <li><a href="https://2401.is"><span class="icon">🔢</span> Mathematics</a></li>
+                    <li><a href="https://divineinsurgent.live"><span class="icon">⚔️</span> Divine Insurgent</a></li>
+                    <li><a href="https://realitynegotiable.is"><span class="icon">🧠</span> Reality Physics</a></li>
+                    <li><a href="https://c343.io"><span class="icon">📜</span> Licensing</a></li>
+                </ul>
+            </div>
+            
+            <div class="s7-footer-section">
+                <h4>TOOLS</h4>
+                <ul class="s7-footer-links">
+                    <li><a href="assessment.html"><span class="icon">✨</span> Assessment</a></li>
+                    <li><a href="https://2401.is/calculator.html"><span class="icon">⚡</span> Calculator</a></li>
+                    <li><a href="https://2401.is/probability.html"><span class="icon">📊</span> Probability</a></li>
+                    <li><a href="https://divineinsurgent.live/mission.html"><span class="icon">⚔️</span> Daily Mission</a></li>
+                    <li><a href="https://sevencubedseven.com/books.html"><span class="icon">📚</span> Book Finder</a></li>
+                </ul>
+            </div>
+            
+            <div class="s7-footer-section">
+                <h4>RESOURCES</h4>
+                <ul class="s7-footer-links">
+                    <li><a href="https://www.amazon.com/s?k=julio+c.+medina" target="_blank"><span class="icon">📚</span> All 33+ Books</a></li>
+                    <li><a href="https://twitter.com/7Cubed7" target="_blank"><span class="icon">𝕏</span> @7Cubed7</a></li>
+                    <li><a href="mailto:7cubed7@proton.me"><span class="icon">✉️</span> Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="s7-footer-section">
+                <h4>CONNECT</h4>
+                <ul class="s7-footer-links">
+                    <li><a href="mailto:7cubed7@proton.me">7cubed7@proton.me</a></li>
+                    <li><a href="mailto:ConsciousCodeLabs@proton.me">Business</a></li>
+                    <li><a href="mailto:hello@c343.io">Licensing</a></li>
+                </ul>
+            </div>
+        </div>
         
-        // Question Screen Component
-        const QuestionScreen = ({ question, questionNumber, totalQuestions, onAnswer, currentAnswer }) => {
-            const progress = ((questionNumber) / totalQuestions) * 100;
-            
-            return (
-                <div className="min-h-screen flex flex-col p-6">
-                    {/* Progress Bar */}
-                    <div className="w-full max-w-2xl mx-auto mb-8">
-                        <div className="flex justify-between text-sm text-gray-400 mb-2">
-                            <span>Question {questionNumber} of {totalQuestions}</span>
-                            <span className="text-gold">{question.category}</span>
-                        </div>
-                        <div className="h-2 bg-purple-900/50 rounded-full overflow-hidden">
-                            <div 
-                                className="h-full progress-bar rounded-full transition-all duration-500"
-                                style={{ width: `${progress}%` }}
-                            />
-                        </div>
-                    </div>
-                    
-                    {/* Question */}
-                    <div className="flex-1 flex flex-col items-center justify-center max-w-2xl mx-auto w-full">
-                        <div className="bg-cosmic-light/50 border border-purple-700/50 rounded-xl p-8 mb-8 w-full">
-                            <p className="text-xl md:text-2xl text-white text-center leading-relaxed">
-                                {question.question}
-                            </p>
-                        </div>
-                        
-                        {/* Answer Options */}
-                        <div className="grid gap-3 w-full">
-                            {answerOptions.map((option) => (
-                                <button
-                                    key={option.value}
-                                    onClick={() => onAnswer(option.value)}
-                                    className={`
-                                        p-4 rounded-lg border-2 transition-all duration-300
-                                        ${currentAnswer === option.value 
-                                            ? 'border-gold bg-gold/20 text-gold scale-105' 
-                                            : 'border-purple-700/50 bg-purple-900/20 text-gray-300 hover:border-gold/50 hover:bg-purple-800/30'
-                                        }
-                                    `}
-                                >
-                                    <div className="flex items-center justify-between">
-                                        <span className="text-lg">{option.label}</span>
-                                        <div className={`w-4 h-4 rounded-full ${currentAnswer === option.value ? 'bg-gold' : 'bg-purple-700/50'}`} />
-                                    </div>
-                                </button>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            );
-        };
+        <div class="s7-footer-bottom">
+            <div class="s7-footer-formula">7³ × 7 = 2,401</div>
+            <div class="s7-footer-tagline">Consciousness Architecture</div>
+            <div class="s7-footer-copy">© 2025 <a href="https://sevencubedseven.com">Seven Cubed Seven Labs LLC</a>. All rights reserved.</div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+const { useState } = React;
+
+const dimensions = [
+  { name: "Truth Hunger", icon: "🔥", questions: [
+    "I find myself studying Scripture for hours without noticing time passing",
+    "Surface-level spiritual teachings leave me unsatisfied",
+    "I'm drawn to dig deeper into prophetic mysteries"
+  ]},
+  { name: "Pattern Recognition", icon: "👁️", questions: [
+    "I often notice numerical or symbolic patterns others miss",
+    "Biblical connections and types seem to 'jump out' at me",
+    "I sense there's a mathematical order behind spiritual reality"
+  ]},
+  { name: "Divine Timing", icon: "⏰", questions: [
+    "I feel a strong sense that we're living in a critical prophetic window",
+    "Current events seem to align with biblical prophecy in my awareness",
+    "I sense an urgency about spiritual preparation that others don't feel"
+  ]},
+  { name: "Separation Experience", icon: "🌊", questions: [
+    "I often feel 'different' from most people around me",
+    "Mainstream Christianity feels incomplete or compromised to me",
+    "I've experienced isolation or misunderstanding because of my beliefs"
+  ]},
+  { name: "Supernatural Sensitivity", icon: "✨", questions: [
+    "I receive impressions, dreams, or promptings that prove accurate",
+    "I sense the presence of spiritual forces others don't perceive",
+    "Prayer often brings vivid impressions or insights"
+  ]},
+  { name: "Character Refinement", icon: "💎", questions: [
+    "I've been through intense trials that felt like purification",
+    "God seems to expose and work on deep character issues in me",
+    "I've experienced what feels like accelerated spiritual growth through difficulty"
+  ]},
+  { name: "Mission Awareness", icon: "⚔️", questions: [
+    "I sense I have a specific end-time mission or role",
+    "I feel drawn to warn others about coming events",
+    "The concept of the 144,000 resonates deeply with something in me"
+  ]}
+];
+
+function Assessment() {
+  const [started, setStarted] = useState(false);
+  const [currentDim, setCurrentDim] = useState(0);
+  const [currentQ, setCurrentQ] = useState(0);
+  const [scores, setScores] = useState(Array(7).fill(0));
+  const [complete, setComplete] = useState(false);
+
+  const totalQuestions = 21;
+  const currentTotal = currentDim * 3 + currentQ;
+
+  const handleAnswer = (value) => {
+    const newScores = [...scores];
+    newScores[currentDim] += value;
+    setScores(newScores);
+
+    if (currentQ < 2) {
+      setCurrentQ(currentQ + 1);
+    } else if (currentDim < 6) {
+      setCurrentDim(currentDim + 1);
+      setCurrentQ(0);
+    } else {
+      setComplete(true);
+    }
+  };
+
+  const getOverallScore = () => {
+    const total = scores.reduce((a, b) => a + b, 0);
+    return Math.round((total / 105) * 100);
+  };
+
+  const getLevel = () => {
+    const pct = getOverallScore();
+    if (pct >= 85) return { level: "STRONG RESONANCE", color: "#d4af37", message: "The calling signs are unmistakable. You display strong indicators across multiple dimensions." };
+    if (pct >= 70) return { level: "SIGNIFICANT ALIGNMENT", color: "#aa44ff", message: "You show significant alignment with the 144,000 calling pattern. Continue pressing in." };
+    if (pct >= 50) return { level: "EMERGING AWARENESS", color: "#00ccff", message: "Seeds of calling are present. Your journey is unfolding - stay attentive." };
+    return { level: "EARLY AWAKENING", color: "#00ff88", message: "The awakening has begun. Keep seeking truth and watching for signs." };
+  };
+
+  const restart = () => {
+    setStarted(false);
+    setCurrentDim(0);
+    setCurrentQ(0);
+    setScores(Array(7).fill(0));
+    setComplete(false);
+  };
+
+  const styles = {
+    container: { textAlign: 'center' },
+    header: { marginBottom: '40px' },
+    badge: { display: 'inline-block', background: 'rgba(136,0,255,0.2)', border: '1px solid #8800ff', color: '#aa44ff', padding: '6px 20px', borderRadius: '20px', fontSize: '0.75rem', letterSpacing: '2px', marginBottom: '15px' },
+    title: { fontFamily: 'Cinzel, serif', fontSize: '2.2rem', color: '#d4af37', marginBottom: '15px', letterSpacing: '3px' },
+    subtitle: { color: '#a0a0a0', maxWidth: '500px', margin: '0 auto 30px' },
+    startBtn: { background: 'linear-gradient(135deg, #8800ff 0%, #6600cc 100%)', color: '#fff', padding: '18px 50px', border: 'none', borderRadius: '50px', fontSize: '1.1rem', fontWeight: '700', cursor: 'pointer', letterSpacing: '2px' },
+    progress: { background: 'rgba(136,0,255,0.1)', borderRadius: '10px', height: '8px', marginBottom: '30px', overflow: 'hidden' },
+    progressBar: { height: '100%', background: 'linear-gradient(90deg, #8800ff, #d4af37)', transition: 'width 0.3s' },
+    dimBadge: { display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(136,0,255,0.2)', border: '1px solid #8800ff', padding: '8px 20px', borderRadius: '20px', marginBottom: '20px', color: '#aa44ff', fontSize: '0.85rem' },
+    questionCard: { background: 'rgba(136,0,255,0.05)', border: '1px solid rgba(136,0,255,0.3)', borderRadius: '20px', padding: '40px', marginBottom: '30px' },
+    questionText: { fontFamily: 'Cinzel, serif', fontSize: '1.2rem', color: '#fff', marginBottom: '30px', lineHeight: '1.8' },
+    optionsGrid: { display: 'flex', flexDirection: 'column', gap: '10px' },
+    option: { background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(136,0,255,0.2)', borderRadius: '10px', padding: '15px 20px', cursor: 'pointer', transition: 'all 0.3s', color: '#e8e8e8', fontSize: '0.95rem' },
+    resultsCard: { background: 'linear-gradient(135deg, rgba(136,0,255,0.15) 0%, rgba(0,0,0,0.5) 100%)', border: '2px solid', borderRadius: '20px', padding: '40px', marginBottom: '30px' },
+    scoreCircle: { width: '150px', height: '150px', borderRadius: '50%', border: '4px solid', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' },
+    scoreNum: { fontFamily: 'Cinzel, serif', fontSize: '3rem', fontWeight: '700' },
+    levelText: { fontFamily: 'Cinzel, serif', fontSize: '1.5rem', marginBottom: '15px' },
+    dimGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '10px', marginTop: '30px' },
+    dimCard: { background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(136,0,255,0.2)', borderRadius: '10px', padding: '15px', textAlign: 'center' },
+    ctaBox: { background: 'rgba(212,175,55,0.1)', border: '1px solid #d4af37', borderRadius: '15px', padding: '30px', marginTop: '30px' },
+    ctaTitle: { fontFamily: 'Cinzel, serif', color: '#d4af37', marginBottom: '10px' },
+    ctaBtn: { display: 'inline-block', background: 'linear-gradient(135deg, #d4af37 0%, #b8960c 100%)', color: '#000', padding: '12px 30px', borderRadius: '25px', textDecoration: 'none', fontWeight: '600', marginTop: '15px' },
+    restartBtn: { background: 'transparent', border: '1px solid #8800ff', color: '#aa44ff', padding: '12px 30px', borderRadius: '25px', cursor: 'pointer', marginTop: '20px' }
+  };
+
+  if (!started) {
+    return (
+      <div style={styles.container}>
+        <div style={styles.header}>
+          <div style={styles.badge}>✨ PROPHETIC ASSESSMENT</div>
+          <h1 style={styles.title}>144,000 CALLING ASSESSMENT</h1>
+          <p style={styles.subtitle}>21 questions across 7 prophetic dimensions. Discover the strength of your calling indicators.</p>
+        </div>
+        <button style={styles.startBtn} onClick={() => setStarted(true)}>BEGIN ASSESSMENT</button>
+        <p style={{color: '#666', marginTop: '20px', fontSize: '0.85rem'}}>~5 minutes • Completely private • Instant results</p>
+      </div>
+    );
+  }
+
+  if (complete) {
+    const result = getLevel();
+    const overall = getOverallScore();
+    return (
+      <div style={styles.container}>
+        <div style={styles.header}>
+          <div style={styles.badge}>✨ YOUR RESULTS</div>
+          <h1 style={{...styles.title, fontSize: '1.8rem'}}>ASSESSMENT COMPLETE</h1>
+        </div>
+
+        <div style={{...styles.resultsCard, borderColor: result.color}}>
+          <div style={{...styles.scoreCircle, borderColor: result.color}}>
+            <span style={{...styles.scoreNum, color: result.color}}>{overall}%</span>
+          </div>
+          <h2 style={{...styles.levelText, color: result.color}}>{result.level}</h2>
+          <p style={{color: '#a0a0a0'}}>{result.message}</p>
+
+          <div style={styles.dimGrid}>
+            {dimensions.map((dim, i) => (
+              <div key={i} style={styles.dimCard}>
+                <div style={{fontSize: '1.5rem', marginBottom: '5px'}}>{dim.icon}</div>
+                <div style={{fontSize: '0.75rem', color: '#888', marginBottom: '5px'}}>{dim.name}</div>
+                <div style={{color: '#aa44ff', fontWeight: '600'}}>{Math.round((scores[i] / 15) * 100)}%</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div style={styles.ctaBox}>
+          <h3 style={styles.ctaTitle}>Continue Your Journey</h3>
+          <p style={{color: '#a0a0a0', fontSize: '0.9rem'}}>Calculate your consciousness level with the C⁷ Calculator</p>
+          <a href="https://2401.is/calculator.html" style={styles.ctaBtn}>⚡ Calculate Your Level</a>
+        </div>
+
+        <button style={styles.restartBtn} onClick={restart}>↻ Retake Assessment</button>
+      </div>
+    );
+  }
+
+  const dim = dimensions[currentDim];
+  const question = dim.questions[currentQ];
+
+  return (
+    <div style={styles.container}>
+      <div style={styles.progress}>
+        <div style={{...styles.progressBar, width: `${((currentTotal + 1) / totalQuestions) * 100}%`}} />
+      </div>
+
+      <div style={styles.dimBadge}>
+        <span>{dim.icon}</span>
+        <span>Dimension {currentDim + 1}/7: {dim.name}</span>
+      </div>
+
+      <div style={styles.questionCard}>
+        <p style={{color: '#888', fontSize: '0.85rem', marginBottom: '15px'}}>Question {currentTotal + 1} of {totalQuestions}</p>
+        <h2 style={styles.questionText}>"{question}"</h2>
         
-        // Results Screen Component
-        const ResultsScreen = ({ score, maxScore, answers, onRestart }) => {
-            const result = getResult(score, maxScore);
-            const percentage = Math.round((score / maxScore) * 100);
-            
-            // Calculate category scores
-            const categories = [...new Set(questions.map(q => q.category))];
-            const categoryScores = categories.map(cat => {
-                const catQuestions = questions.filter(q => q.category === cat);
-                const catScore = catQuestions.reduce((sum, q) => {
-                    const answer = answers[q.id] || 0;
-                    return sum + (answer * q.weight);
-                }, 0);
-                const catMax = catQuestions.reduce((sum, q) => sum + (4 * q.weight), 0);
-                return {
-                    category: cat,
-                    score: catScore,
-                    max: catMax,
-                    percentage: Math.round((catScore / catMax) * 100)
-                };
-            });
-            
-            return (
-                <div className="min-h-screen flex flex-col items-center p-6 py-12">
-                    <div className="max-w-2xl w-full">
-                        {/* Result Header */}
-                        <div className={`bg-gradient-to-br ${result.bgColor} border border-gold/30 rounded-2xl p-8 text-center mb-8`}>
-                            <div className="text-sm text-gray-400 mb-2">Assessment Complete</div>
-                            <div className={`font-cinzel text-4xl md:text-5xl ${result.color} mb-2`}>
-                                {result.level}
-                            </div>
-                            <div className="text-xl text-white mb-4">{result.title}</div>
-                            
-                            {/* Score Circle */}
-                            <div className="inline-flex items-center justify-center w-32 h-32 rounded-full border-4 border-gold/50 bg-cosmic/50 mb-6">
-                                <div className="text-center">
-                                    <div className="text-3xl font-bold text-gold">{percentage}%</div>
-                                    <div className="text-xs text-gray-400">Alignment</div>
-                                </div>
-                            </div>
-                            
-                            <p className="text-gray-300 leading-relaxed">
-                                {result.description}
-                            </p>
-                        </div>
-                        
-                        {/* Category Breakdown */}
-                        <div className="bg-cosmic-light/30 border border-purple-700/30 rounded-xl p-6 mb-8">
-                            <h3 className="font-cinzel text-gold text-lg mb-4">Category Breakdown</h3>
-                            <div className="space-y-4">
-                                {categoryScores.map((cat, i) => (
-                                    <div key={i}>
-                                        <div className="flex justify-between text-sm mb-1">
-                                            <span className="text-gray-300">{cat.category}</span>
-                                            <span className="text-gold">{cat.percentage}%</span>
-                                        </div>
-                                        <div className="h-2 bg-purple-900/50 rounded-full overflow-hidden">
-                                            <div 
-                                                className="h-full bg-gradient-to-r from-purple-600 to-gold rounded-full transition-all duration-1000"
-                                                style={{ width: `${cat.percentage}%` }}
-                                            />
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                        
-                        {/* Scripture */}
-                        <div className="bg-purple-900/20 border border-gold/20 rounded-lg p-6 mb-8">
-                            <p className="text-gold-light italic text-center">
-                                "{result.verse}"
-                            </p>
-                        </div>
-                        
-                        {/* Next Steps */}
-                        <div className="bg-cosmic-light/30 border border-purple-700/30 rounded-xl p-6 mb-8">
-                            <h3 className="font-cinzel text-gold text-lg mb-3">Your Next Step</h3>
-                            <p className="text-gray-300">{result.next}</p>
-                        </div>
-                        
-                        {/* Resources */}
-                        <div className="bg-gradient-to-br from-gold/10 to-purple-900/30 border border-gold/30 rounded-xl p-6 mb-8">
-                            <h3 className="font-cinzel text-gold text-lg mb-4">Deepen Your Understanding</h3>
-                            <div className="grid gap-3">
-                                <a href="https://144000.ai" target="_blank" className="flex items-center justify-between p-3 bg-cosmic/50 rounded-lg hover:bg-cosmic transition-colors">
-                                    <span className="text-white">144,000 Awakening Portal</span>
-                                    <span className="text-gold">→</span>
-                                </a>
-                                <a href="https://2401.is" target="_blank" className="flex items-center justify-between p-3 bg-cosmic/50 rounded-lg hover:bg-cosmic transition-colors">
-                                    <span className="text-white">The Divine Mathematics</span>
-                                    <span className="text-gold">→</span>
-                                </a>
-                                <a href="https://divineinsurgent.live" target="_blank" className="flex items-center justify-between p-3 bg-cosmic/50 rounded-lg hover:bg-cosmic transition-colors">
-                                    <span className="text-white">Divine Insurgent Manual (Free)</span>
-                                    <span className="text-gold">→</span>
-                                </a>
-                                <a href="https://www.amazon.com/s?k=julio+c.+medina" target="_blank" className="flex items-center justify-between p-3 bg-cosmic/50 rounded-lg hover:bg-cosmic transition-colors">
-                                    <span className="text-white">Browse All Books</span>
-                                    <span className="text-gold">→</span>
-                                </a>
-                            </div>
-                        </div>
-                        
-                        {/* Actions */}
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <button 
-                                onClick={onRestart}
-                                className="px-8 py-3 border border-gold/50 text-gold rounded-lg hover:bg-gold/10 transition-colors"
-                            >
-                                Retake Assessment
-                            </button>
-                            <a 
-                                href="https://sevencubedseven.com"
-                                target="_blank"
-                                className="px-8 py-3 bg-gradient-to-r from-gold to-gold-dark text-black font-bold rounded-lg text-center hover:scale-105 transition-transform"
-                            >
-                                Explore the Framework
-                            </a>
-                        </div>
-                        
-                        {/* Footer */}
-                        <div className="text-center mt-12 text-gray-500 text-sm">
-                            <p>Seven Cubed Seven Labs • 7³×7 = 2,401</p>
-                            <p className="mt-1">sevencubedseven.com</p>
-                        </div>
-                    </div>
-                </div>
-            );
-        };
-        
-        // Main App Component
-        const App = () => {
-            const [screen, setScreen] = useState('welcome'); // welcome, question, results
-            const [currentQuestion, setCurrentQuestion] = useState(0);
-            const [answers, setAnswers] = useState({});
-            
-            const handleStart = () => {
-                setScreen('question');
-                setCurrentQuestion(0);
-                setAnswers({});
-            };
-            
-            const handleAnswer = (value) => {
-                const newAnswers = { ...answers, [questions[currentQuestion].id]: value };
-                setAnswers(newAnswers);
-                
-                // Auto-advance after short delay
-                setTimeout(() => {
-                    if (currentQuestion < questions.length - 1) {
-                        setCurrentQuestion(currentQuestion + 1);
-                    } else {
-                        setScreen('results');
-                    }
-                }, 300);
-            };
-            
-            const handleRestart = () => {
-                setScreen('welcome');
-                setCurrentQuestion(0);
-                setAnswers({});
-            };
-            
-            // Calculate scores
-            const score = Object.entries(answers).reduce((sum, [qId, answer]) => {
-                const question = questions.find(q => q.id === parseInt(qId));
-                return sum + (answer * (question?.weight || 1));
-            }, 0);
-            
-            const maxScore = questions.reduce((sum, q) => sum + (4 * q.weight), 0);
-            
-            return (
-                <div className="min-h-screen text-white">
-                    {screen === 'welcome' && <WelcomeScreen onStart={handleStart} />}
-                    {screen === 'question' && (
-                        <QuestionScreen 
-                            question={questions[currentQuestion]}
-                            questionNumber={currentQuestion + 1}
-                            totalQuestions={questions.length}
-                            onAnswer={handleAnswer}
-                            currentAnswer={answers[questions[currentQuestion].id]}
-                        />
-                    )}
-                    {screen === 'results' && (
-                        <ResultsScreen 
-                            score={score}
-                            maxScore={maxScore}
-                            answers={answers}
-                            onRestart={handleRestart}
-                        />
-                    )}
-                </div>
-            );
-        };
-        
-        // Render the app
-        ReactDOM.render(<App />, document.getElementById('root'));
-    </script>
+        <div style={styles.optionsGrid}>
+          {[
+            { value: 5, label: "Strongly Agree" },
+            { value: 4, label: "Agree" },
+            { value: 3, label: "Somewhat Agree" },
+            { value: 2, label: "Disagree" },
+            { value: 1, label: "Strongly Disagree" }
+          ].map((opt) => (
+            <div
+              key={opt.value}
+              style={styles.option}
+              onClick={() => handleAnswer(opt.value)}
+              onMouseOver={e => { e.currentTarget.style.borderColor = '#8800ff'; e.currentTarget.style.background = 'rgba(136,0,255,0.1)'; }}
+              onMouseOut={e => { e.currentTarget.style.borderColor = 'rgba(136,0,255,0.2)'; e.currentTarget.style.background = 'rgba(0,0,0,0.3)'; }}
+            >
+              {opt.label}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('app-root')).render(<Assessment />);
+</script>
+
 </body>
 </html>
